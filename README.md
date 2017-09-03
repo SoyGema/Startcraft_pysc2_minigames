@@ -13,7 +13,10 @@ Before creating a minigame, I encourage you to run the alredy developed ones to 
 Find bellow the exploration of DefeatRoaches mini-game map 
 
 Execute in your terminal 
-'''$ python3 -m pysc2.bin.agent --map DefeatRoaches '''
+
+```shell
+$ python3 -m pysc2.bin.agent --map DefeatRoaches
+```
 
 ![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-03%20a%20las%2012.05.18.png)
 
