@@ -10,6 +10,9 @@ To investigate elements of the game in isolation, and to provide further fine-gr
 
 ## Minigame introduction
 Before creating a minigame, I encourage you to run the alredy developed ones to see wich task are subdivided into each minigame as the design could be important . The minigame title gives us a description of the goal 
+Find bellow the exploration of DefeatRoaches mini-game map 
+
+'''$ python3 -m pysc2.bin.agent --map DefeatRoaches '''
 
 Startcraft dataset and AI research 
 ## Useful resources about Startcraft 
