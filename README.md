@@ -18,14 +18,42 @@ Execute in your terminal
 $ python3 -m pysc2.bin.agent --map DefeatRoaches
 ```
 
+
+
+## DefeatRoaches
+
+#### Description
+
+A map with 9 Marines and a group of 4 Roaches on opposite sides. Rewards are earned by using the Marines to defeat Roaches, with optimal combat strategy requiring the Marines to perform focus fire on the Roaches. Whenever all 4 Roaches have been defeated, a new group of 4 Roaches is spawned and the player is awarded 5 additional Marines at full health, with all other surviving Marines retaining their existing health (no restore). Whenever new units are spawned, all unit positions are reset to opposite sides of the map.
+
+#### Initial State
+
+*   9 Marines in a vertical line at a random side of the map (preselected)
+*   4 Roaches in a vertical line at the opposite side of the map from the
+    Marines
+
+#### Rewards
+
+*   Roach defeated: +10
+*   Marine defeated: -1
+
+#### End Conditions
+
+*   Time elapsed
+*   All Marines defeated
+
+#### Time Limit
+
+*   120 seconds
+
 ![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-03%20a%20las%2012.05.18.png)
 
 This is a human interpretable view of the game on the left, and coloured versions of the feature layers on the right. Find in top left described the actions 
-Attack
-Stop
-Move
-MovePatrol
-MoveHoldPosition
+a-Attack
+d-Stop
+m-Move
+p-MovePatrol
+t-MoveHoldPosition
 Green circles are used to define player1(terran) and red circles correspond to player2(roaches)
 
 Startcraft dataset and AI research 
