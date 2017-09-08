@@ -2,8 +2,8 @@
 
 # Startcraft Pysc2 Deepmind minigames creation
 This repository aims to serve as a guide for opensource contributing in minigame pysc2 library for Artificial Intelligence reserach.
-From Deepmind pysc2 paper you can find the following minigame description
-For minigame execution you should go to https://github.com/deepmind/pysc2 and install requirements
+
+For minigame instalation for execution you should go to https://github.com/deepmind/pysc2 and install requirements
 
 ## Minigame task description
 Minigames come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . 
@@ -12,13 +12,6 @@ To investigate elements of the game in isolation, and to provide further fine-gr
 ## Minigame introduction
 Before creating a minigame, I encourage you to run the alredy developed ones to see wich task are subdivided into each minigame as the design could be important . The minigame title gives us a description of the goal 
 Find bellow the exploration of DefeatRoaches mini-game map 
-
-Execute in your terminal 
-
-```shell
-$ python3 -m pysc2.bin.agent --map DefeatRoaches
-```
-
 
 
 ## DefeatRoaches
@@ -68,6 +61,9 @@ DefeatRoaches minigame map random agent
 ```shell
 $ python3 -m pysc2.bin.agent --map DefeatRoaches
 ```
+watch video at 
+[![MarinesVSRoaches](http://i.imgur.com/Ot5DWAW.png)](https://www.youtube.com/watch?v=tYxleQHgWJE "Random Agent MarinesVS Roaches")
+
 Priorization of moving in map (marine player 1) VS attack (roaches player 2) 
 Playing for 15min with all defeats for player 1 
 Note that this is not a scripted agent. 
