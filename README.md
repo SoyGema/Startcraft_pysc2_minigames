@@ -62,13 +62,13 @@ DefeatRoaches minigame map random agent
 $ python3 -m pysc2.bin.agent --map DefeatRoaches
 ```
 watch video at 
-[![MarinesVSRoaches](http://i.imgur.com/Ot5DWAW.png)](https://www.youtube.com/watch?v=tYxleQHgWJE "Random Agent MarinesVS Roaches")
+[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=tYxleQHgWJE "Random Agent MarinesVS Roaches")
 
-Priorization of moving in map (marine player 1) VS attack (roaches player 2) 
-Playing for 15min with all defeats for player 1 
-Note that this is not a scripted agent. 
-The game was executing during 15 minutes approximately 
-Find bellow the 17 actions the agent was actually executing during the game 
+*   Priorization of moving in map (marine player 1) VS attack (roaches player 2) 
+*   Playing for 15min with all defeats for player 1 
+*   Note that this is not a scripted agent. 
+*   The game was executing during 15 minutes approximately 
+*   Find bellow the 17 actions the agent was actually executing during the game 
 ![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/print_screen_1.png)
 
 #### Experiment 2 
@@ -77,12 +77,15 @@ DefeatRoaches minigame map scripted agent
 ```shell
 $ python3 -m pysc2.bin.agent --map DefeatRoaches --agent pysc2.agents.scripted_agent.DefeatRoaches
 ```
-No map random exploration by agent
-Increased number of victories by agent 
-However, there seems to be a balance in between . 
-In the middle of the game you can see player 1 is currently winning and the agent starts losing as it imbalance by rules games. 
-Everytime the game is executed it shows an error at aproximately min 15 
-It has been reported to blizzard team 
+watch video at 
+[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=XvYWLRBf-5U "Scripted Agent MarinesVS Roaches")
+
+*   No map random exploration by agent
+*   Increased number of victories by agent 
+*   However, there seems to be a balance in between . 
+*   In the middle of the game you can see player 1 is currently winning and the agent starts losing as it imbalance by rules games. 
+*   Everytime the game is executed it shows an error at aproximately min 15 
+*  Error has been reported to blizzard team 
 
 Startcraft dataset and AI research 
 ## Useful resources about Startcraft 
@@ -93,3 +96,4 @@ https://arxiv.org/pdf/1708.02139.pdf
 Pysc2 deepmind reserach paper
 
 Link to Pysc2 repository 
+https://github.com/deepmind/pysc2
