@@ -88,8 +88,34 @@ watch video at
 *   Everytime the game is executed it shows an error at aproximately min 15 
 *  Error has been reported to blizzard team 
 
+
+#### Getting into Starcraft 2 Map Editor 
+
+
+First of all , Starcraft 2 Map Editor is an extensive piece of software that might be studied independly.
+There are currently great tutorials at battlenet in wich you can find detailed information about map creations
+By now, the most significant concepts that minigame creation need are 
+
+*Terrain. Set the physical environment for your game including playable space and start units
+*Data.
+*Triggers . Basic set of instructions and visual programming interface in wich you can set important variables such as : events, conditions and actions 
+
+Inside your Starcraft II folder you should find an executable file for StarCraft II Editor . When you open MarinesVSRoach.SC2Maps you should find something like this 
+##### Terrain
+In this screen you might find a terrain configuration. Playable space and Right / Left areas are settled for different players. In the upper band you might find common open/save  copy/paste settings options and unit/terrain edition.
+
+![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-08%20a%20las%2017.05.07.png)
+The playable regions will be related to players in the triggers 
+The first thing that you might find curious is that there are no units settled down in the terrain . They are settled in the trigger map 
+
+##### Triggers
+
+Triggers are divided into List / content full interfaces.
+The list shows the variables that you set in your minigame ( in this case a timer, a marine and a roach variable) in wich conditions are created in diferent scripts 
+![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-08%20a%20las%2017.48.55.png)
+
 Startcraft dataset and AI research 
-## Useful resources about Startcraft 
+## Another  Useful resources about Startcraft 
 DeepMind paper
 
 DataSet exploration
