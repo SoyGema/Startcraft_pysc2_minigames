@@ -6,6 +6,7 @@ From Deepmind pysc2 paper you can find the following minigame description
 For minigame execution you should go to https://github.com/deepmind/pysc2 and install requirements
 
 ## Minigame task description
+Minigames come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . 
 To investigate elements of the game in isolation, and to provide further fine-grained steps towards playing the full game, Deepmind has  built several mini-games. These are focused scenarios on small maps that have been constructed with the purpose of testing a subset of actions and/or game mechanics with a clear reward structure. Unlike the full game where the reward is just win/lose/tie, the reward structure for mini-games can reward particular behaviours (as defined in a corresponding .SC2Map file).
 
 ## Minigame introduction
@@ -55,6 +56,37 @@ m-Move
 p-MovePatrol
 t-MoveHoldPosition
 Green circles are used to define player1(terran) and red circles correspond to player2(roaches)
+
+
+#### Defeat Roaches analysis
+
+Two different type of agents have been executed in this minimap. As a matter of results, you can find bellow listed the difference in between them 
+
+#### Experiment 1
+
+DefeatRoaches minigame map random agent
+```shell
+$ python3 -m pysc2.bin.agent --map DefeatRoaches
+```
+Priorization of moving in map (marine player 1) VS attack (roaches player 2) 
+Playing for 15min with all defeats for player 1 
+Note that this is not a scripted agent. 
+The game was executing during 15 minutes approximately 
+Find bellow the 17 actions the agent was actually executing during the game 
+![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/print_screen_1.png)
+
+#### Experiment 2 
+
+DefeatRoaches minigame map scripted agent 
+```shell
+$ python3 -m pysc2.bin.agent --map DefeatRoaches --agent pysc2.agents.scripted_agent.DefeatRoaches
+```
+No map random exploration by agent
+Increased number of victories by agent 
+However, there seems to be a balance in between . 
+In the middle of the game you can see player 1 is currently winning and the agent starts losing as it imbalance by rules games. 
+Everytime the game is executed it shows an error at aproximately min 15 
+It has been reported to blizzard team 
 
 Startcraft dataset and AI research 
 ## Useful resources about Startcraft 
