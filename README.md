@@ -70,6 +70,7 @@ watch video at
 *   Note that this is not a scripted agent. 
 *   The game was executing during 15 minutes approximately 
 *   Find bellow the 17 actions the agent was actually executing during the game 
+You can find a complete list of actions in this link https://github.com/deepmind/pysc2/blob/master/pysc2/lib/actions.py#L553 . Think that when you are defining your own minimap you should list of actions of units.
 ![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/print_screen_1.png )
 
 #### Experiment 2 
