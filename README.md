@@ -40,15 +40,16 @@ A map with 9 Marines and a group of 4 Roaches on opposite sides. Rewards are ear
 
 *   120 seconds
 
-![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-03%20a%20las%2012.05.18.png | width=100)
+![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-03%20a%20las%2012.05.18.png =250x )
 
 This is a human interpretable view of the game on the left, and coloured versions of the feature layers on the right. Find in top left described the actions 
-a-Attack
-d-Stop
-m-Move
-p-MovePatrol
-t-MoveHoldPosition
+*a-Attack
+*d-Stop
+*m-Move
+*p-MovePatrol
+*t-MoveHoldPosition
 Green circles are used to define player1(terran) and red circles correspond to player2(roaches)
+This abstraction might be useful for CNN training 
 
 
 #### Defeat Roaches analysis
@@ -62,7 +63,7 @@ DefeatRoaches minigame map random agent
 $ python3 -m pysc2.bin.agent --map DefeatRoaches
 ```
 watch video at 
-[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=tYxleQHgWJE "Random Agent MarinesVS Roaches" | width=100)
+[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=tYxleQHgWJE "Random Agent MarinesVS Roaches" )
 
 *   Priorization of moving in map (marine player 1) VS attack (roaches player 2) 
 *   Playing for 15min with all defeats for player 1 
@@ -78,7 +79,7 @@ DefeatRoaches minigame map scripted agent
 $ python3 -m pysc2.bin.agent --map DefeatRoaches --agent pysc2.agents.scripted_agent.DefeatRoaches
 ```
 watch video at 
-[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=XvYWLRBf-5U "Scripted Agent MarinesVS Roaches" | width=150)
+[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=XvYWLRBf-5U "Scripted Agent MarinesVS Roaches" )
 
 *   No map random exploration by agent
 *   Increased number of victories by agent 
