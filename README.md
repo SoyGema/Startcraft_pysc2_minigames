@@ -40,7 +40,7 @@ A map with 9 Marines and a group of 4 Roaches on opposite sides. Rewards are ear
 
 *   120 seconds
 
-![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-03%20a%20las%2012.05.18.png =250x )
+![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-03%20a%20las%2012.05.18.png )
 
 This is a human interpretable view of the game on the left, and coloured versions of the feature layers on the right. Find in top left described the actions 
 *a-Attack
