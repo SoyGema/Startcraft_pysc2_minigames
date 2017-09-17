@@ -115,6 +115,25 @@ Triggers are divided into List / content full interfaces.
 The list shows the variables that you set in your minigame ( in this case a timer, a marine and a roach variable) in wich conditions are created in diferent scripts 
 ![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-08%20a%20las%2017.48.55.png)
 
+On the left side you can find the trigger list you might need for your map creation. In that list we define some as variables and another ones as visual script that will have a complete function.
+Common to all minimaps we have Init trigger, in wich we will setup initial conditions for the minimap .
+Top right to trigger list we will find trigger content , in wich we will expand options for init trigger to function. We will find 4 options common to all minimaps 
+
+
+*Event : if we make right click we will check that TriggerAddEventMapInit , talking to inizialize map
+*Local Variables . Initialize variables to 0 in inizialization
+*Conditions. No conditions in start defined here 
+*Actions . All the details for MapSetup . Lets pay closer atention to this.
+
+#### Action Triggers : defining functioning
+
+##### Init Trigger : defining inizialization
+
+We divide action triggers into different cattegories : map setup, scenario, Initial score and objetive. In the action triggers map setup we find at first Playable Space setup wich we must link to the terrain edition we made earlier , and set camera options in order to make the playable space camera setup accordingly 
+Note that there you might find trigger conditions if/then/else: visual programming scripting for settle down map conditions. In this case we are stablishing the condition that if player 1 is distint from computer player, then Locks the camera in place for a player, causing the player to be unable to move the camera in any way -settle by cameraLockInputTrigger-.In other case reveals the specified region for the specified duration of time and increases velocity game. 
+
+
+
 Startcraft dataset and AI research 
 ## Another  Useful resources about Startcraft 
 DeepMind paper
