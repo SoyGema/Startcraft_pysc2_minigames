@@ -119,7 +119,7 @@ On the left side you can find the trigger list you might need for your map creat
 Common to all minimaps we have Init trigger, in wich we will setup initial conditions for the minimap .
 Top right to trigger list we will find trigger content , in wich we will expand options for init trigger to function. We will find 4 options common to all minimaps 
 
-
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-17%20a%20las%2012.58.45.png)
 *Event : if we make right click we will check that TriggerAddEventMapInit , talking to inizialize map
 *Local Variables . Initialize variables to 0 in inizialization
 *Conditions. No conditions in start defined here 
@@ -127,11 +127,12 @@ Top right to trigger list we will find trigger content , in wich we will expand 
 
 #### Action Triggers : defining functioning
 
-##### Init Trigger : defining inizialization
-
+##### Init Triggers : defining inizialization
+###### Map Triggers
 We divide action triggers into different cattegories : map setup, scenario, Initial score and objetive. In the action triggers map setup we find at first Playable Space setup wich we must link to the terrain edition we made earlier , and set camera options in order to make the playable space camera setup accordingly 
 Note that there you might find trigger conditions if/then/else: visual programming scripting for settle down map conditions. In this case we are stablishing the condition that if player 1 is distint from computer player, then Locks the camera in place for a player, causing the player to be unable to move the camera in any way -settle by cameraLockInputTrigger-.In other case reveals the specified region for the specified duration of time and increases velocity game. 
 
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-17%20a%20las%2013.09.44.png) MapSetup trigger visual scrip inizialization
 
 
 Startcraft dataset and AI research 
