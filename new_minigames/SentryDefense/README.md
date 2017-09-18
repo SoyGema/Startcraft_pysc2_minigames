@@ -1,5 +1,6 @@
 ## Sentry Defense mini-game Map
 
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-18%20a%20las%2020.14.14.png)
 
 #### Description
 The mini-game is a melee in between Terran marauders and marines and Protoss Stalker and Sentry units on opposite sides.
