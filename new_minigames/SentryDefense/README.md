@@ -36,4 +36,8 @@ Sentry unit is disposed as Leader with special weapon position.
 *   Fog of war disabled 
 *   No camera movement required (single-screen)
 *   Note that this map is under development and should be re-sized for balance 
+*   Please note this work is still under development. If you find any relevant comment or issue feel free to open an issue 
+
+#### Tutorial
+Find a tutorial about another minigame at https://soygema.github.io/Startcraft_pysc2_minigames/
 
