@@ -1,7 +1,4 @@
-# Index
 
-## 1 - Terran
-1.1 - [Terrannnnn](Terran_mini_ganes.md)
 
 # Startcraft Pysc2 Deepmind minigames creation
 This repository aims to serve as a guide for opensource contributing in minigame pysc2 library for Artificial Intelligence reserach.
@@ -136,6 +133,14 @@ We divide action triggers into different cattegories : map setup, scenario, Init
 Note that there you might find trigger conditions if/then/else: visual programming scripting for settle down map conditions. In this case we are stablishing the condition that if player 1 is distint from computer player, then Locks the camera in place for a player, causing the player to be unable to move the camera in any way -settle by cameraLockInputTrigger-.In other case reveals the specified region for the specified duration of time and increases velocity game. 
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-17%20a%20las%2013.09.44.png) MapSetup trigger visual scrip inizialization
+
+
+# Index
+
+## 1 - Terran
+1.1 - [Terran](Terran/Terran_mini_ganes.md)
+1.2 - [Zerg](Zerg/Zerg_mini_games.md)
+1.3 - [Protoss](Protoss/Protoss_mini_games.md)
 
 
 Startcraft dataset and AI research 
