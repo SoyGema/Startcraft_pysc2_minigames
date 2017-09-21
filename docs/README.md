@@ -1,4 +1,7 @@
+# Index
 
+## 1 - Terran
+1.1 - [Terrannnnn](Terran_mini_ganes.md)
 
 # Startcraft Pysc2 Deepmind minigames creation
 This repository aims to serve as a guide for opensource contributing in minigame pysc2 library for Artificial Intelligence reserach.
