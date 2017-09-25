@@ -14,7 +14,7 @@ Sentry unit is disposed as Leader with special weapon position.
 
 *   7 Marines at left playable size
 *   4 Marauders at left playable size disposed as leader in arrowhead formation
-*   5 Stalkers at right playable size 
+*   3 Stalkers at right playable size 
 *   4 Sentry at right playable size disposed as leader in arrowhead formation 
 
 #### Rewards
@@ -29,7 +29,7 @@ Sentry unit is disposed as Leader with special weapon position.
 
 #### Time Limit
 
-*   120 seconds
+*   180 seconds
 
 #### Additional Notes
 
@@ -40,4 +40,4 @@ Sentry unit is disposed as Leader with special weapon position.
 
 #### Tutorial
 Find a tutorial about another minigame at https://soygema.github.io/Startcraft_pysc2_minigames/
-
+This map is currently under development and balancing 
