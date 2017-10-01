@@ -1,5 +1,6 @@
-## Sentry ForceField
+## ForceField
 
+![alt tag]https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/ForceField.png
 
 #### Description
 
@@ -8,10 +9,10 @@ The goal is to exploit sentry forcefield function
 
 #### Initial State
 
-2 Sentry at left playable size
+*   2 Sentry at left playable size
+*   3 Hydralysks at right playable size
+*   2 Zerlings at right playable size
 
-4 Zerlings at right playable size
-1 Roach at right playable size 
 
  #### Rewards
 
