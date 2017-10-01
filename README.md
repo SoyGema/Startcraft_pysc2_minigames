@@ -16,9 +16,17 @@ To investigate elements of the game in isolation, and to provide further fine-gr
 Before creating a minigame, I encourage you to run the alredy developed ones to see wich task are subdivided into each minigame as the design could be important . The minigame title gives us a description of the goal 
 You might find in this repo new maps created for investigate in explotation-exploration dilema and some programming about the functions of different units .
 
-## SentryDefense Project
-In this repo, besides information about currentminigames, you will find my own minigame development . 
+## SentryDefense Project and ForceField Project 
+
+In this repo, besides information about currentminigames, you will find my own minigames development . 
 In projects section you can know more about the state of the art and in docs and new_minigames folder you can find the map.
+In SentryDefense, a arrowhead TerranVSProtoss Melee is proposed .
+In ForceField,an imbalanced situation between Sentry and Zerg units forces sentry to use forcefield, adding terrain disposition.
+
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-18%20a%20las%2020.14.14.png)
+
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/ForceField.png)
 
 Regarding scripted agent, there is a python file with current development. Please, if you make any reasearch about it share in orther to improve current minigames development .
 Please, report problems in issues if you currently find problems .
+
