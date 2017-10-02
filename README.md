@@ -30,3 +30,12 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 Regarding scripted agent, there is a python file with current development. Please, if you make any reasearch about it share in orther to improve current minigames development .
 Please, report problems in issues if you currently find problems .
 
+## Running ForceField in your computer 
+
+For executing Starcraft mini-games you need to have :
+
+* Starcraft installed in your computer
+* Install pysc2 library following the instructions in https://github.com/deepmind/pysc2
+* Clone/Download this repository and put ForceField map on map folder
+* Execute the agent from your console typing :
+      $ python -m pysc2.bin.agent --map ForceField
