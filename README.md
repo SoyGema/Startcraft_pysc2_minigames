@@ -9,7 +9,8 @@ This repository aims to serve as a guide for opensource contributing in minigame
 For minigame instalation for execution you should go to https://github.com/deepmind/pysc2 and install requirements
 
 ## Minigame task description
-Minigames come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . 
+Minigames come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . Mini-games focus on different elements of Starcraft II Gameplay .
+
 To investigate elements of the game in isolation, and to provide further fine-grained steps towards playing the full game, Deepmind has  built several mini-games. These are focused scenarios on small maps that have been constructed with the purpose of testing a subset of actions and/or game mechanics with a clear reward structure. Unlike the full game where the reward is just win/lose/tie, the reward structure for mini-games can reward particular behaviours (as defined in a corresponding .SC2Map file).
 
 ## Minigame introduction and Repo information
@@ -37,5 +38,6 @@ For executing Starcraft mini-games you need to have :
 * Starcraft installed in your computer
 * Install pysc2 library following the instructions in https://github.com/deepmind/pysc2
 * Clone/Download this repository and put ForceField map on map folder
+* Add ForceField.SC2Map file to Maps file in Starcraft 2, usually in Applications>Starcraft2>Maps>minigames
 * Execute the agent from your console typing :
       $ python -m pysc2.bin.agent --map ForceField
