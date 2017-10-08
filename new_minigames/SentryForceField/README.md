@@ -22,7 +22,7 @@ Zerg defeated : +10
  #### End Conditions
 
 Time elapsed
-Terran defeated
+Zerg defeated
 Time Limit
 
 180 seconds
