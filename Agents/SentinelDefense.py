@@ -58,7 +58,7 @@ class SentryDefense(base_agent.BaseAgent):
     if _ATTACK_SCREEN in obs.observation["available_actions"]:
       player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
       sentry_y, sentry_x = (player_relative == _PLAYER_HOSTILE).nonzero()
-      stalker_y, stalker_x = (player_relative == _PLAYER_HOSTILE).nonzero()
+ 
       
       #Build a loop that makes the sentry do a guardian shield
       if sentry_y.any():
@@ -74,8 +74,7 @@ class SentryDefense(base_agent.BaseAgent):
       index = numpy.argmax(sentry_y)
       index2 = numpy.argmax(stalker_y)
       target = [sentry_x[index], sentry_y[index]]
-      target2 = [stalker_x[index2], stalker_y[index2]]
-      return actions.FunctionCall(_ATTACK_SCREEN, [_NOT_QUEUED, target]) #put target2 with stalker?
+      return actions.FunctionCall(_ATTACK_SCREEN, [_NOT_QUEUED, target]) 
     elif _SELECT_ARMY in obs.observation["available_actions"]:
       return actions.FunctionCall(_SELECT_ARMY, [_SELECT_ALL])
     else:
