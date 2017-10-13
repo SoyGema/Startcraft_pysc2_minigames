@@ -8,7 +8,7 @@ The purpose of these life-like images is twofold:
 This map is under development. Last version provided soon.
 
 
-![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/HallucinIce.png)
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/HallucinIceV2.png)
 
 #### Description
 
