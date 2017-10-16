@@ -6,7 +6,8 @@ The purpose of these life-like images is twofold:
 * protecting protoss lives
 
 This map is under development. Last version provided soon.
-
+Agent trained 
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/HallucinIce.gif)
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/HallucinIceV2.png)
 
