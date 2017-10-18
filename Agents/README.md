@@ -1,7 +1,8 @@
-# Sentry Defense mini-game Map
+# Sentry Agent mini-game Map exploration
 
-The mini-game is a melee in between Terran marauders and marines and Protoss Stalker and Sentry units
-The goal for RL agent research is to maximize the utility of sentry unit defense, hallucination and sield functions
+This part of the repository aims to post several agents regarding functions of sentry unit. 
+SentryDefense.py --contains all the actions for sentrydefense unit
+scripted_agent.py --contains tests for Forcefield Starcraft 2 map 
 
-### Sentry unit video 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=t4CKJE-LBEw)
+### Sentry unit comparations 
+
