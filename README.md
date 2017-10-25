@@ -43,3 +43,7 @@ For executing Starcraft mini-games you need to have :
 * Add ForceField.SC2Map file to Maps file in Starcraft 2, usually in Applications>Starcraft2>Maps>minigames
 * Execute the agent from your console typing :
       $ python -m pysc2.bin.agent --map ForceField
+      
+      
+#### Tutorial
+Find an ongoing  tutorial about another minigame (Defeat Roaches) at https://soygema.github.io/Startcraft_pysc2_minigames/
