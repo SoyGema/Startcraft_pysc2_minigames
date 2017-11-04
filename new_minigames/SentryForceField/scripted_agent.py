@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Thanks to : jmathison
+# Thanks to : jmathison 
+#             Simon0xzx
 
 """Scripted agents."""
 
@@ -56,14 +57,14 @@ class Hallucination(base_agent.BaseAgent):
 
   def step(self, obs):
     super(Hallucination, self).step(obs)
-    if Hallucinations= in obs.observation["available_actions"]:
+    if Hallucinations in obs.observation["available_actions"]:
       player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
       hellion_y, hellion_x = (player_relative == _PLAYER_HOSTILE).nonzero()
       if not hydralisk_y.any():
         return actions.FunctionCall(_NO_OP, [])
       index = numpy.argmax(hydralisk_y)
       target = [hydralisk_x[index], hydralisk_y[index]]
-      return actions.FunctionCall(Hallucinations(np.random.randint(0,len(Hallucinations)), [_NOT_QUEUED])
+      return actions.FunctionCall(Hallucinations(np.random.randint(0,len(Hallucinations)), [_NOT_QUEUED]))
     elif _SELECT_ARMY in obs.observation["available_actions"]:
       return actions.FunctionCall(_SELECT_ARMY, [_SELECT_ALL])
     else:
