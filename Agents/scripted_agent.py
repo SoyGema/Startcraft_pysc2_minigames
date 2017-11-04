@@ -11,9 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Special thanks to :
+# Special thanks to : jmathison
 #                     thebunny 
-#                     
+#                     AleKahpwn                
 """Scripted agents."""
 
 from __future__ import absolute_import
@@ -95,6 +95,16 @@ class Hallucination(base_agent.BaseAgent):
   def step(self, obs):
     test = random.randrange(0, len(Hallucinations) - 1)
     super(Hallucination, self).step(obs)
+    
+        score_general = obs.observation["score_cumulative"][0]
+    value_units = obs.observation["score_cumulative"][3]
+    kill_value_units = obs.observation["score_cumulative"][5]
+
+    print("score general is ", score_general)
+    print("value units is ", value_units)
+    print("kill value units is", kill_value_units)
+    
+   
     if Hallucinations[test] in obs.observation["available_actions"]:
       player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
       hellion_y, hellion_x = (player_relative == _PLAYER_HOSTILE).nonzero()
