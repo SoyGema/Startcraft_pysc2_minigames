@@ -51,7 +51,7 @@ class SentryForceField(base_agent.BaseAgent):
 
   def step(self, obs):
     super(SentryForceField, self).step(obs)
-    if _ATTACK_SCREEN in obs.observation["available_actions"]:
+    if _FORCE_FIELD in obs.observation["available_actions"]:
       player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
       hydralisk_y, hydralisk_x = (player_relative == _PLAYER_HOSTILE).nonzero()
       if not hydralisk_y.any():
