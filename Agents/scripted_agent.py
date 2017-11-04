@@ -50,7 +50,7 @@ class SentryForceField(base_agent.BaseAgent):
   """An agent specifically for solving the ForceField map."""
 
   def step(self, obs):
-    super(DefeatRoaches, self).step(obs)
+    super(SentryForceField, self).step(obs)
     if _ATTACK_SCREEN in obs.observation["available_actions"]:
       player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
       hydralisk_y, hydralisk_x = (player_relative == _PLAYER_HOSTILE).nonzero()
