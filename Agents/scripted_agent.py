@@ -82,3 +82,25 @@ class HallucinationArchon(base_agent.BaseAgent):
       return actions.FunctionCall(_SELECT_ARMY, [_SELECT_ALL])
     else:
       return actions.FunctionCall(_NO_OP, [])
+
+    
+    
+class HallucinationArchon(base_agent.BaseAgent):
+  """An agent specifically for solving the ForceField map."""
+
+  def step(self, obs):
+    super(Hallucination, self).step(obs)
+    if _HAL_ARCHON in obs.observation["available_actions"]:
+      player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+      hellion_y, hellion_x = (player_relative == _PLAYER_HOSTILE).nonzero()
+      if not hellion_y.any():
+        return actions.FunctionCall(_NO_OP, [])
+      index = numpy.argmax(hellion_y)
+      target = [hellion_x[index], hellion_y[index]]
+      return actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
+    elif _SELECT_ARMY in obs.observation["available_actions"]:
+      return actions.FunctionCall(_SELECT_ARMY, [_SELECT_ALL])
+    else:
+      return actions.FunctionCall(_NO_OP, [])
+
+
