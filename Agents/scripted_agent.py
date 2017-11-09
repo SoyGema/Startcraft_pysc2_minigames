@@ -96,7 +96,7 @@ class Hallucination(base_agent.BaseAgent):
     test = random.randrange(0, len(Hallucinations) - 1)
     super(Hallucination, self).step(obs)
     
-        score_general = obs.observation["score_cumulative"][0]
+    score_general = obs.observation["score_cumulative"][0]
     value_units = obs.observation["score_cumulative"][3]
     kill_value_units = obs.observation["score_cumulative"][5]
 
