@@ -41,7 +41,7 @@ Sentry unit is disposed as Leader with special weapon position.
 #### Tutorial
 Find a tutorial about another minigame at https://soygema.github.io/Startcraft_pysc2_minigames/
 This map is currently under development and balancing . 
-A significant inizialization bug has been encountered in randomized mode 
+
 
 Next upload includes :
 --Player 1 as  Protoss
