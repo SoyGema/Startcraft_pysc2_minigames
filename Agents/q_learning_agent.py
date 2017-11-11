@@ -15,6 +15,8 @@ from pysc2.lib import features
 _PLAYER_RELATIVE = features.SCREEN_FEATURES.player_relative.index
 _PLAYER_FRIENDLY = 1
 _PLAYER_HOSTILE = 4 
+_UNIT_TYPE = features.SCREEN_FEATURES.unit_type.index
+_PLAYER_ID = features.SCREEN_FEATURES.player_id.index
 
 _NO_OP = actions.FUNCTIONS.no_op.id
 _MOVE_SCREEN = actions.FUNCTIONS.Move_screen.id
@@ -24,6 +26,8 @@ _NOT_QUEUED = [0]
 _SELECT_ALL = [0]
 
 # Define the actions 
+ACTION_DO_NOTHING = 'donothing'
+ACTION_SELECT_SENTRY = 'selectsentry'
 ACTION_HAL_ADEPT = 'adept'
 ACTION_HAL_ARCHON = 'archon'
 ACTION_HAL_COL = 'colosus'
@@ -107,9 +111,23 @@ class SmartAgent(base_agent.BaseAgent):
     
     #Compare step from scripted agent with learning agent 
   def step(self, obs):
-    #-----------------#
+    super(SmartAgent, self).step(obs)
     #---#
-    #---#
+    player_y, player_x = (obs.observation['minimap'][_PLAYER_RELATIVE] == _PLAYER_FRIENDLY).nonzero()
+    self.base_top_left = 1 if player_y.any() and player_y.mean() <= 31 else 0
+    
+    if smart_action == ACTION_DO_NOTHING:
+      return actions.FunctionCall(_NO_OP), [])
+      
+    elif smart_action == ACTION_SELECT_SENTRY:
+      unit_type = obs.observation['screen'][_UNIT_TYPE]
+      unit_y, unit_x = (unit_type == _SENTRY).nonzero()
+      
+      if unit_y.any():
+        i = random.randint(o, len(unit_y) -1)
+        target = [unit_x[i], unit_y[i]]
+        
+        return actions.FunctionCall(_SELECT_POINT, [_SCREEN, target])
     
     if self.previous_action is not None:
       reward = 0
