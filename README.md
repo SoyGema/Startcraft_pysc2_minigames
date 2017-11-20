@@ -4,7 +4,7 @@
 [![label](https://img.shields.io/github/issues-raw/badges/shields/website.svg)]()
 
 
-# Startcraft Pysc2 Deepmind minigames creation
+# Startcraft pySC2 Deepmind minigames creation
 This repository aims to serve as a guide for opensource contributing in minigame pysc2 library for Starcraft
 For minigame instalation for execution you should go to https://github.com/deepmind/pysc2 and install requirements
 
