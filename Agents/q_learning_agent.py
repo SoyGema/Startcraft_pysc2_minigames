@@ -38,6 +38,7 @@ ACTION_HAL_PHOENIX = 'phoenix'
 ACTION_HAL_STALKER = 'stalker'
 ACTION_HAL_VOIDRAID = 'voidraid'
 ACTION_HAL_ZEALOT = 'zealot'
+ACTION_ATTACK = 'attack'
 
 Smart_actions = [
   ACTION_NO_OP,
@@ -50,7 +51,8 @@ Smart_actions = [
   ACTION_HAL_PHOENIX,
   ACTION_HAL_STALKER,
   ACTION_HAL_VOIDRAID,
-  ACTION_HAL_ZEALOT 
+  ACTION_HAL_ZEALOT,
+  ACTION_ATTACK,
 ]
 
 KILL_UNIT_REWARD = 0.5
@@ -148,4 +150,8 @@ class SmartAgent(base_agent.BaseAgent):
       return actions.FunctionCall(_NO_OP, [])
     
     elif smart_action == ACTION_HAL_ARCHON:
+      if _HAL_ARCHON in obs.observation["available_actions"]:
+        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      return actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
 
