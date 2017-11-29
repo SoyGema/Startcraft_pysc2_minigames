@@ -119,3 +119,30 @@ class Hallucination(base_agent.BaseAgent):
       return actions.FunctionCall(_SELECT_ARMY, [_SELECT_ALL])
     else:
       return actions.FunctionCall(_NO_OP, [])
+
+    
+ class StalkerControl(base_agent.BaseAgent):
+  """An agent specifically for solving the DefeatZealotsMap map without Blink but with micro  """  
+
+    base_top_left = None  
+  
+    def transformLocation(self, x, x_distance, y, y_distance):
+        if not self.base_top_left:
+            return [x - x_distance, y - y_distance]=
+        return [x + x_distance, y + y_distance]
+      
+      
+  def step(self, obs):
+    super(StalkerControl, self).step(obs)
+    if _______ in obs.observation["available_actions"]:
+      player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+      zealot_y, zealot_x = (player_relative == _PLAYER_HOSTILE).nonzero()
+      if not zealot_y.any():
+        return actions.FunctionCall(_NO_OP, [])
+      index = numpy.argmax(zealot_y)
+      target = [zealot_x[index], zealot_y[index]]
+      return actions.FunctionCall(_________, [_NOT_QUEUED])
+    elif _SELECT_ARMY in obs.observation["available_actions"]:
+      return actions.FunctionCall(_SELECT_ARMY, [_SELECT_ALL])
+    else:
+      return actions.FunctionCall(_NO_OP, [])
