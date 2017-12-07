@@ -32,7 +32,7 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/ForceField.png)
 
-![alt tag](Startcraft_pysc2_minigames/Images/HallucinIce.gif)
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/HallucinIceV2.png)
 
 Regarding scripted agent, there is a python file with current development. Please, if you make any reasearch about it share in orther to improve current minigames development .
 Please, report problems in issues if you currently find problems .
