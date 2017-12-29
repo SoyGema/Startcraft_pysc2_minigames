@@ -3,7 +3,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/SoyGema/Startcraft_pysc2_minigames.svg)](https://github.com/SoyGema/Startcraft_pysc2_minigames/issues)
 [![GitHub stars](https://img.shields.io/github/stars/SoyGema/Startcraft_pysc2_minigames.svg)](https://github.com/SoyGema/Startcraft_pysc2_minigames/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/SoyGema/Startcraft_pysc2_minigames.svg)](https://github.com/SoyGema/Startcraft_pysc2_minigames/network)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/SoyGema/Startcraft_pysc2_minigames.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FSoyGema%2FStartcraft_pysc2_minigames)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/SoyGema/Startcraft_pysc2_minigames.svg?style=social)](https://twitter.com/intent/tweet?text=Pysc2_mini-games_by_@SoyGema:&url=https%3A%2F%2Fgithub.com%2FSoyGema%2FStartcraft_pysc2_minigames)
 
 # Startcraft pySC2 Deepmind minigames creation
 This repository aims to serve as a guide for opensource contributing in minigame pysc2 library for Starcraft
