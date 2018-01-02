@@ -1,10 +1,12 @@
 ## FlowerFields
 
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202018-01-02%20a%20las%2014.51.09.png)
+
 
 #### Description
 
 Defeat protoss photon cannon without losing any marauder.
-Learn to regroup marauders and to attack in a coordinated way without losing any unit 
+The goal of the minigame is to learn to regroup marauders and to attack in a coordinated way without losing any unit 
 
 #### Initial State
 
