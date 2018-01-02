@@ -30,8 +30,11 @@ In SentryDefense, a arrowhead TerranVSProtoss Melee is proposed .
 In ForceField,an imbalanced situation between Sentry and Zerg units forces sentry to use forcefield, adding terrain disposition.
 
 1.- [SentryDefense](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryDefense): Protoss VS Terran Melee
+
 2.- [ForceField](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryForceField): Learn about Sentry forcefield function
+
 3.- [HallucinIce](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryHallucination): Learn how to play with hallucination
+
 4.- [FlowerFields](): Defeat protoss photon cannon 
 
 
