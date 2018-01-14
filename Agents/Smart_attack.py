@@ -52,9 +52,16 @@ Smart_actions = [
   ACTION_HAL_STALKER,
   ACTION_HAL_VOIDRAID,
   ACTION_HAL_ZEALOT,
-  ACTION_ATTACK,
 ]
 
+# Alter the attack action
+#The smart_actions variable contains an acton to attack any x,y map combination. 
+
+for mm_x in range(0, 64):
+ for mm_y in range(0, 64):
+     if (mm_x + 1) % 16 == 0 and (mm_y + 1) % 16 == 0:
+         smart_actions.append(ACTION_ATTAC + '_' + str(mm_x - 8) + '_' + str(mm_y -8))
+         
 KILL_UNIT_REWARD = 0.5
 
 
@@ -64,7 +71,7 @@ class QLearnigTable:
       self.lr = learning_rate
       self.gamma = reward_decay
       self.epsilon = e_greedy
-      self.q_table = pd.DataFrame(columns=self.actions)
+      self.q_table = pd.DataFrame(columns=self.actions, dtype=np.float64)
       
   def choose_action(self, observation):
       self.check_state_exist(observation)
@@ -76,7 +83,7 @@ class QLearnigTable:
       # some actions have the same value
         state_action = state_action.reindex(np.random.permutation(state_action.index))
         
-        action = state_action.argmax()
+        action = state_action.idmax()
       else :
       # choose random action 
         action = np.random.choice(self.actions)
@@ -94,27 +101,42 @@ class QLearnigTable:
       q_pedict = self.q_table.ix[s, a]
       q_target = r + self.gamma * self.q_table.ix[s_, :].max
       
-      # update 
-      
+      # update       
       self.q_table.ix[s, a] += self.lr * (q_table - q_predict)
       
   def check_state_exist(self, state):
       if state not in self.q_table.index:
+        # append new state to q-table
         self.q_table = self.q_table.append(pd.Series([0] * len(self.actions), index=self.q_table.columns, name=state))
       
   
-class SmartAgent(base_agent.BaseAgent):
+class AttackAgent(base_agent.BaseAgent):
   def __init__(self):
-    super(SmartAgent, self).__init__() #For fix trouble with undefined properties 
+    super(AttackAgent, self).__init__() #For fix trouble with undefined properties 
     self.qlearn = QLearningTable(actions=list(range(len(smart_actions))))
     
     self.previous_killed_unit_score = 0
     self.previous_action = None
     self.previous_state = None 
-    
+ 
+    # Define method converts absolute x and y values based on the location of your base.
+    # These methods are use for SVC building 
+   
+  def transformDistance(self, x, x_distance, y, y_distance):
+      if not self.bas_top_left:
+          return [x - x_distance, y + y_distance]
+     
+      return [x + x_distance, y + y_distance]
+     
+  def transformLocation(self, x, y):
+      if not self.base_top_left:
+          return [64 -x, 64 -y]
+     
+      return [x,y]
+ 
     #Compare step from scripted agent with learning agent 
   def step(self, obs):
-    super(SmartAgent, self).step(obs)
+    super(AttackAgent, self).step(obs)
     #---#
     player_y, player_x = (obs.observation['minimap'][_PLAYER_RELATIVE] == _PLAYER_FRIENDLY).nonzero()
     self.base_top_left = 1 if player_y.any() and player_y.mean() <= 31 else 0
@@ -164,3 +186,7 @@ class SmartAgent(base_agent.BaseAgent):
         player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
         hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
       return actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
+     
+    elif smart_action == ACTION_ATTACK:
+      if _ATTACK_MINIMAP in obs.observation["available_actions"]:
+          return actions.FunctionCall(_ATTACK_MINIMAP, [_NOT_QUEUED, self.transformLocation(int(x), int(y))])
