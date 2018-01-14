@@ -130,7 +130,16 @@ class SmartAgent(base_agent.BaseAgent):
         target = [unit_x[i], unit_y[i]]
         
         return actions.FunctionCall(_SELECT_POINT, [_SCREEN, target])
-    
+        
+        
+        current_state = [
+            n_sentry_count,
+            hallucinations_count,
+            n_enemies_count,
+            army_supply,
+        ]   
+        
+        
     if self.previous_action is not None:
       reward = 0
       
@@ -154,4 +163,5 @@ class SmartAgent(base_agent.BaseAgent):
         player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
         hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
       return actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
+    
 
