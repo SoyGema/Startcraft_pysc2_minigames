@@ -10,7 +10,7 @@ This repository aims to serve as a guide for opensource contributing in minigame
 For minigame instalation for execution you should go to [the official repository](https://github.com/deepmind/pysc2) and install requirements
 
 ## Direct Links 
-Please, if you want to reach directly mini-games click to the following [link]( Startcraft_pysc2_minigames/zip/mini-games.zip)
+Please, if you want to reach directly mini-games click to the following [link](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/zip/mini-games.zip)
 
 ## Minigame task description
 Minigames come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . Mini-games focus on different elements of Starcraft II Gameplay .
