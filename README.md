@@ -7,11 +7,10 @@
 
 # Startcraft pySC2 Deepmind minigames creation
 This repository aims to serve as a guide for opensource contributing in minigame pysc2 library for Starcraft
-For minigame instalation for execution you should go to https://github.com/deepmind/pysc2 and install requirements
+For minigame instalation for execution you should go to [the official repository](https://github.com/deepmind/pysc2) and install requirements
 
 ## Direct Links 
-Please, if you want to reach directly mini-games go to the following links 
-https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames
+Please, if you want to reach directly mini-games click to the following [link]( Startcraft_pysc2_minigames/zip/mini-games.zip)
 
 ## Minigame task description
 Minigames come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . Mini-games focus on different elements of Starcraft II Gameplay .
@@ -22,20 +21,20 @@ To investigate elements of the game in isolation, and to provide further fine-gr
 Before creating a minigame, I encourage you to run the alredy developed ones to see wich task are subdivided into each minigame as the design could be important . The minigame title gives us a description of the goal 
 You might find in this repo new maps created for investigate in explotation-exploration dilema and some programming about the functions of different units .
 
-## SentryDefense , ForceField and HallucinIce Project 
+## SentryDefense , ForceField , HallucinIce  and FlowerFields Projects 
 
 In this repo, besides information about currentminigames, you will find my own minigames development . 
 In projects section you can know more about the state of the art and in docs and new_minigames folder you can find the map.
 In SentryDefense, a arrowhead TerranVSProtoss Melee is proposed .
 In ForceField,an imbalanced situation between Sentry and Zerg units forces sentry to use forcefield, adding terrain disposition.
 
-1.- [SentryDefense](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryDefense): Protoss VS Terran Melee
+1.- [SentryDefense](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryDefense): Protoss VS Terran Melee.
 
-2.- [ForceField](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryForceField): Learn about Sentry forcefield function
+2.- [ForceField](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryForceField): Learn about Sentry forcefield function. 
 
-3.- [HallucinIce](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryHallucination): Learn how to play with hallucination
+3.- [HallucinIce](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/SentryHallucination): Learn how to play with hallucination. 
 
-4.- [FlowerFields](): Defeat protoss photon cannon 
+4.- [FlowerFields](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/FlowerFields): Defeat protoss photon cannon . 
 
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-18%20a%20las%2020.14.14.png)
@@ -43,6 +42,8 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/ForceField.png)
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/HallucinIceV2.png)
+
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202018-01-02%20a%20las%2014.51.09.png)
 
 Regarding scripted agent, there is a python file with current development. Please, if you make any reasearch about it share in orther to improve current minigames development .
 Please, report problems in issues if you currently find problems .
@@ -52,7 +53,7 @@ Please, report problems in issues if you currently find problems .
 For executing Starcraft mini-games you need to have :
 
 * Starcraft installed in your computer
-* Install pysc2 library following the instructions in https://github.com/deepmind/pysc2
+* Install pysc2 library following the instructions in [the official repository](https://github.com/deepmind/pysc2)
 * Clone/Download this repository and put ForceField map on map folder
 * Add ForceField.SC2Map file to Maps file in Starcraft 2, usually in Applications>Starcraft2>Maps>minigames
 * Execute the agent from your console typing :
@@ -60,4 +61,4 @@ For executing Starcraft mini-games you need to have :
       
       
 #### Tutorial
-Find an ongoing  tutorial about another minigame (Defeat Roaches) at https://soygema.github.io/Startcraft_pysc2_minigames/
+Find an ongoing  tutorial about another minigame (Defeat Roaches)under development at https://soygema.github.io/Startcraft_pysc2_minigames/
