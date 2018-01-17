@@ -40,6 +40,20 @@ ACTION_HAL_VOIDRAID = 'voidraid'
 ACTION_HAL_ZEALOT = 'zealot'
 ACTION_ATTACK = 'attack'
 
+#Define the call to the API of the Hallucination function 
+_HAL_ADEPT = actions.FUNCTIONS.Hallucination_Adept_quick.id
+_HAL_ARCHON = actions.FUNCTIONS.Hallucination_Archon_quick.id
+_HAL_COL = actions.FUNCTIONS.Hallucination_Colossus_quick.id
+_HAL_DISRUP = actions.FUNCTIONS.Hallucination_Disruptor_quick.id
+_HAL_HIGTEM = actions.FUNCTIONS.Hallucination_HighTemplar_quick.id
+_HAL_IMN = actions.FUNCTIONS.Hallucination_Immortal_quick.id
+_HAL_PHOENIX = actions.FUNCTIONS.Hallucination_Phoenix_quick.id
+_HAL_STALKER = actions.FUNCTIONS.Hallucination_Stalker_quick.id
+_HAL_VOIDRAID = actions.FUNCTIONS.Hallucination_VoidRay_quick.id
+_HAL_ZEALOT = actions.FUNCTIONS.Hallucination_Zealot_quick.id
+_FORCE_FIELD = actions.FUNCTIONS.Effect_ForceField_screen.id
+_GUARD_FIELD = actions.FUNCTIONS.Effect_GuardianShield_quick.id
+
 Smart_actions = [
   ACTION_NO_OP,
   ACTION_HAL_ADEPT,
@@ -165,4 +179,39 @@ class SmartAgent(base_agent.BaseAgent):
         hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
       return actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
     
+    elif smart_action == ACTION_HAL_ADEPT:
+      if _HAL_ADEPT in obs.observation["available_actions"]:
+        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
+    
+     elif smart_action == ACTION_HAL_COL:
+      if _HAL_COL in obs.observation["available_actions"]:
+        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])   
 
+      elif smart_action == ACTION_HAL_DISRUP:
+      if _HAL_DISRUP in obs.observation["available_actions"]:
+        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])   
+    
+      elif smart_action == ACTION_HIGTEM:
+      if _HAL_HIGTEM in obs.observation["available_actions"]:
+        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])     
+    
+      elif smart_action == ACTION_PHOENIX:
+      if _HAL_PHOENIX in obs.observation["available_actions"]:
+        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED]) 
+    
+    
+      elif smart_action == ACTION_STALKER:
+      if _HAL_STALKER in obs.observation["available_actions"]:
+        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED]) 
