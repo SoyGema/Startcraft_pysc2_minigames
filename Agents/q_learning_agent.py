@@ -1,6 +1,6 @@
 # Q-learning agent for HallucinIce. 
 # The goal for the agent is to discover wich combination of hallucination will be better to defeat 
-# Kudos to MorvanZhou , Steven Brown
+# Kudos to Steven Brown and to MorvanZhou 
 
 import random
 import math 
