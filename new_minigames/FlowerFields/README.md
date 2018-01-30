@@ -13,6 +13,7 @@ The goal of the minigame is to learn to regroup marauders and to attack in a coo
 *   4 photon cannon at Central playable size
 *   2 marauders at right playable size
 *   2 marauders at left playable size
+*   1 medievac 
 
  #### Rewards
 
@@ -23,10 +24,11 @@ Terran defeated : -5
 
 Time elapsed
 Protoss defeated
-Time Limit
+Time Limit : 60 seconds
 
-60 seconds
+
  #### Additional Notes
+ 
 Terrain condition designed for photon defense game development 
 Fog of war disabled
 No camera movement required (single-screen)
