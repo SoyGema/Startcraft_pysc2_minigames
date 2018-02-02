@@ -36,6 +36,7 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 4.- [FlowerFields](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/FlowerFields): Defeat protoss photon cannon . 
 
+5.-[TheRightPath](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/TheRightPath): Move to beacon finding the optimal route collecting minerals and avoiding mines .
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-18%20a%20las%2020.14.14.png)
 
