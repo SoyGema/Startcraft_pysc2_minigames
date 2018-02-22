@@ -38,7 +38,7 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 5.-[TheRightPath](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/TheRightPath): Move to beacon finding the optimal route collecting minerals and avoiding mines .
 
-6.-[RedWaves](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/RedWaves: Choose your race and defend against waves of zerg attacks 
+6.-[RedWaves](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/RedWaves): Choose your race and defend against waves of zerg attacks 
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-18%20a%20las%2020.14.14.png)
 
