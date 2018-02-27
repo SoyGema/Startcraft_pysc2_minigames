@@ -27,4 +27,16 @@ def create_model(input, actions):
   model.compile(loss="categorical_crossentropy",
   optimizer="adam",
   metrics=["accuracy"])
-  
+
+  return model            
+
+
+### Policy 
+# Agent´s behaviour function. How the agent pick actions
+
+policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr="eps", value_max=1, value_min=0.7, value_test=.0, nb_steps=1e6)
+
+### Agent
+#
+            
+dqn = DQNAgent(model=model, nb_actions=action, memory=memory, nb_steps_warmup=50, target_model_update=1e-2, policy=policy)
