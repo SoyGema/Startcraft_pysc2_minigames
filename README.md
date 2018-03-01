@@ -18,12 +18,12 @@ Minigames come as a controled environments that might be useful to exploit game 
 To investigate elements of the game in isolation, and to provide further fine-grained steps towards playing the full game, Deepmind has  built several mini-games. These are focused scenarios on small maps that have been constructed with the purpose of testing a subset of actions and/or game mechanics with a clear reward structure. Unlike the full game where the reward is just win/lose/tie, the reward structure for mini-games can reward particular behaviours (as defined in a corresponding .SC2Map file).
 
 ## Minigame introduction and Repo information
-Before creating a minigame, I encourage you to run the alredy developed ones to see wich task are subdivided into each minigame as the design could be important . The minigame title gives us a description of the goal 
+Before creating a minigame, I encourage you to run the alredy developed ones to see wich task are subdivided into each minigame as the reward function could be important due to the behaviour that leads to learning . The minigame title gives us a description of the goal 
 You might find in this repo new maps created for investigate in explotation-exploration dilema and some programming about the functions of different units .
 
 ## SentryDefense , ForceField , HallucinIce  and FlowerFields Projects 
 
-In this repo, besides information about currentminigames, you will find my own minigames development . 
+In this repo, besides information about current minigames, you will find my own minigames development . 
 In projects section you can know more about the state of the art and in docs and new_minigames folder you can find the map.
 In SentryDefense, a arrowhead TerranVSProtoss Melee is proposed .
 In ForceField,an imbalanced situation between Sentry and Zerg units forces sentry to use forcefield, adding terrain disposition.
