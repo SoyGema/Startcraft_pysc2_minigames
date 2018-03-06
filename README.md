@@ -48,14 +48,17 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202018-01-02%20a%20las%2014.51.09.png)
 
-Regarding scripted agent, there is a python file with current development. Please, if you make any reasearch about it share in orther to improve current minigames development .
+## Agents
+Regarding scripted agent, there is a python file with several developments. Scriptedagent.py is focused on HallucinIce map in which makes Archon Hallucination. Besides there is another class that put all hallucination actions on a list and the agent chooses randomly in between those actions .
+
+An A3C trained agent has been tested with several minigames, resulting some of them in a local optima . 
 Please, report problems in issues if you currently find problems .
 
 ## Running ForceField in your computer 
 
 For executing Starcraft mini-games you need to have :
 
-* Starcraft installed in your computer
+* Starcraft 2 installed in your computer
 * Install pysc2 library following the instructions in [the official repository](https://github.com/deepmind/pysc2)
 * Clone/Download this repository and put ForceField map on map folder
 * Add ForceField.SC2Map file to Maps file in Starcraft 2, usually in Applications>Starcraft2>Maps>minigames
