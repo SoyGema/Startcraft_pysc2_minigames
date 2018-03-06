@@ -16,7 +16,7 @@ from rl.policy import LinearAnnealedPolicy, EpsGreedyQPolicy
 from rl.core import Processor
 from rl.agents.dqn import DQNAgent , SARSAAgent
 
-episode_reward = 0
+
 
 ## Actions from pySC2 API  ( Move, attack, select , hallucination actions ) 
 
@@ -50,7 +50,13 @@ class SC2Proc(Processor):
     return obs
   
   def process_state_batch(self, batch):
+    """Processes an entire batch of states and returns it"""
     return batch[0]
+  
+  def process_reward(self, reward):
+    """Processes the reward as obtained from the environment for use in an agent and returns it """
+    reward = 0
+    return reward 
 
 ## Agent architecture using keras rl 
 
@@ -86,10 +92,17 @@ def create_model(input, actions):
 
 ### Policy 
 # Agent´s behaviour function. How the agent pick actions
-
+# LinearAnnealedPolicy is a wrapper that transforms the policy into a linear incremental linear solution . Then why im not see LAP with other than not greedy ?
+# EpsGreedyQPolicy is a way of selecting random actions with uniform distributions from a set of actions . Select an action that can give max or min rewards
+# BolztmanQPolicy . Assumption that it follows a Boltzman distribution. gives the probability that a system will be in a certain state as a function of that state´s energy??
+            
+            
 policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr="eps", value_max=1, value_min=0.7, value_test=.0, nb_steps=1e6)
+policy = (BoltzmanQPolicy( tau=1., clip= (-500,500)) #clip defined in between -500 / 500 
 
+                        
 ### Agent
-#
+# Double Q-learning ( combines Q-Learning with a deep Neural Network )
+# Q Learning -- Bellman equation 
             
 dqn = DQNAgent(model=model, nb_actions=action, memory=memory, nb_steps_warmup=50, target_model_update=1e-2, policy=policy)
