@@ -17,7 +17,6 @@ from rl.core import Processor
 from rl.agents.dqn import DQNAgent , SARSAAgent
 
 
-
 ## Actions from pySC2 API  ( Move, attack, select , hallucination actions ) 
 
 _PLAYER_RELATIVE = features.SCREEN_FEATURES.player_relative.index
@@ -37,6 +36,10 @@ _HAL_ARCHON = actions.FUNCTIONS.Hallucination_Archon_quick.id
 
 LOAD_MODEL = True 
 SAVE_MODEL = True
+
+## global variable 
+
+episode_reward = 0
 
 ## Processor 
 # A processor acts as a relationship between an Agent and the Env . 
@@ -58,6 +61,33 @@ class SC2Proc(Processor):
     reward = 0
     return reward 
 
+  
+##  Define the environment
+
+class Environment(sc2_env.SC2Env):
+  """Starcraft II enviromnet. Implementation details in lib/features.py"""
+  def step(self, action):
+    """Apply actions, step the world forward, and return observations"""
+    global episode_reward #global variable defined previously 
+    
+    action = action_map(action) #Actions of Hallucination ? Make a function that selects among hallucination functions
+    obs = super(Environment, self).step([actions.FunctionCall(_MOVE_SCREEN, [_NOT_QUEUED, action])]) ## change the action for Hallucination?
+    # The method calls an observation that moves the screen 
+    
+    observation = obs
+    r = obs[0].reward
+    done = obs[0].step_type == environment.StepType.LAST #Episode_over
+    episode_reward += r
+    
+    return observation, r, done, {} #Return observation, reward, and episode_over 
+  
+  def reset(self):
+    global episode_reward
+    episode_reward = 0
+    super(Environment, self).reset()
+    
+    return super(Environment, self).step([actions.FunctionCall(_SELECT_ARMY,[_SELECT_ALL])])
+  
 ## Agent architecture using keras rl 
 
 
