@@ -70,7 +70,7 @@ class Environment(sc2_env.SC2Env):
     """Apply actions, step the world forward, and return observations"""
     global episode_reward #global variable defined previously 
     
-    action = action_map(action) #Actions of Hallucination ? Make a function that selects among hallucination functions
+    action = actions_to_choose(action) #Actions of Hallucination and movement  Make a function that selects among hallucination functions
     obs = super(Environment, self).step([actions.FunctionCall(_MOVE_SCREEN, [_NOT_QUEUED, action])]) ## change the action for Hallucination?
     # The method calls an observation that moves the screen 
     
@@ -82,11 +82,20 @@ class Environment(sc2_env.SC2Env):
     return observation, r, done, {} #Return observation, reward, and episode_over 
   
   def reset(self):
+    # reset the environment 
     global episode_reward
     episode_reward = 0
     super(Environment, self).reset()
     
     return super(Environment, self).step([actions.FunctionCall(_SELECT_ARMY,[_SELECT_ALL])])
+
+  
+def actions_to_choose(action):
+  hall = [ HAL_ADEPT, _HAL_ARCHON ]
+  y = min(int(np.ceil(action / _SIZE)), _SIZE - 1)
+  x = int(action % _SIZE)
+  hallucinate = actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
+  return y,x, hallucinate
   
 ## Agent architecture using keras rl 
 
@@ -98,7 +107,7 @@ class Environment(sc2_env.SC2Env):
 #### 2. Kernel size is the size of the matrix it will be use to make the convolution ( impair size is better)
 #### 3. strides are the translation that kernel size will be making 
 
-def create_model(input, actions):
+def neural_network_model(input, actions):
   model = Sequential()
   model.add(Convolutional2D(256, kernel_size=(5,5), input_shape=input))
   model.add(Activation('relu'))
@@ -120,19 +129,35 @@ def create_model(input, actions):
   return model            
 
 
+            
+def training_game():
+  env = Environment(map_name="HallucinIce", visualize = True, game_steps_per_episode=150)
+            
+  input_shape = (_SIZE, _SIZE, 1)
+  nb_actions = _SIZE * _SIZE  # Should this be an integer 
+            
+  model = neural_network_model(input_shape, action)  
+# memory : how many subsequent observations should be provided to the network?            
+  memory = SequentialMemory(limit=5e4, window_length=_WINDOW_LENGTH) 
+  
+  processor = SC2Proc()
+            
 ### Policy 
 # Agent´s behaviour function. How the agent pick actions
 # LinearAnnealedPolicy is a wrapper that transforms the policy into a linear incremental linear solution . Then why im not see LAP with other than not greedy ?
 # EpsGreedyQPolicy is a way of selecting random actions with uniform distributions from a set of actions . Select an action that can give max or min rewards
 # BolztmanQPolicy . Assumption that it follows a Boltzman distribution. gives the probability that a system will be in a certain state as a function of that state´s energy??
-            
-            
-policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr="eps", value_max=1, value_min=0.7, value_test=.0, nb_steps=1e6)
-policy = (BoltzmanQPolicy( tau=1., clip= (-500,500)) #clip defined in between -500 / 500 
+                        
+  policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr="eps", value_max=1, value_min=0.7, value_test=.0, nb_steps=1e6)
+  #policy = (BoltzmanQPolicy( tau=1., clip= (-500,500)) #clip defined in between -500 / 500 
 
                         
 ### Agent
 # Double Q-learning ( combines Q-Learning with a deep Neural Network )
 # Q Learning -- Bellman equation 
             
-dqn = DQNAgent(model=model, nb_actions=action, memory=memory, nb_steps_warmup=50, target_model_update=1e-2, policy=policy)
+  dqn = DQNAgent(model=model, nb_actions=action, memory=memory,
+                 nb_steps_warmup=50, target_model_update=1e-2, policy=policy,
+                 batch_size = 150)
+            
+  dqn.compile(Adam(lr=.001), metrics=["mae"])
