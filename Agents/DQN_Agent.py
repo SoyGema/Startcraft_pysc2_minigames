@@ -106,20 +106,16 @@ def actions_to_choose(action):
 #### 1. 256 , 127, 256 are the channels- depth of the first layer, one can be colour, edges)
 #### 2. Kernel size is the size of the matrix it will be use to make the convolution ( impair size is better)
 #### 3. strides are the translation that kernel size will be making 
+#### 4. The Neural net architecture is CONV2D-RELU-MAXPOOL-FLATTEN+FULLYCONNECTED
 
 def neural_network_model(input, actions):
   model = Sequential()
   model.add(Convolutional2D(256, kernel_size=(5,5), input_shape=input))
   model.add(Activation('relu'))
   
-  model.add(Convolution2D(127, kernel_size=(3,3))
-  model.add(Activation('relu'))
-  
-  model.add(Convolution2D(32, kernel_size=(5,5))
-  model.add(Activation('relu'))
-  
+  model.add(MaxPooling2D(pool_size=(2, 2), strides=None, padding='valid', data_format=None)  
   model.add(Flatten())
-  model.add(Dense(actions))
+  model.add(Dense(actions)) # This means fully connected ?
   model.add(Activation('softmax')
   
   model.compile(loss="categorical_crossentropy",
@@ -161,3 +157,32 @@ def training_game():
                  batch_size = 150)
             
   dqn.compile(Adam(lr=.001), metrics=["mae"])
+  
+  ## Save the parameters and upload them when needed 
+            
+  name = "HallucinIce"
+  w_file = "dqn_{}_weights.h5f".format(name)
+  check_w_file = "train_w" + name + "_weights.h5f"
+  
+            
+  if SAVE_MODEL:
+     check_w_file = "train_w" + name + "_weights_{step}.h5f"
+  
+  log_file = "training_w_{}_log.json".format(name)
+  callbacks = [ModelIntervalCheckpoint(check_w_file, interval=1e4)]
+  callbacks += [FileLogger(log_filename, interval=100)]
+  
+            
+  if LOAD_MODEL:
+     dqn.load_weights(w_file)
+  
+  dqn.fit(env, callbacks=callbacks, nb_steps=1e7, action_repetition=2,
+          log_interval=1e4, verbose=2)
+
+  dqn.save_weights(w_file, overwrite=True)
+  dqn.test(env, action_repetition=2, nb_episodes=30, visualize=False)
+            
+            
+  if __name__ == '__main__':
+      FLAGS(sys.argv)
+      training_game()
