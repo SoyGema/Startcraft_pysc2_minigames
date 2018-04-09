@@ -19,9 +19,11 @@ _UNIT_TYPE = features.SCREEN_FEATURES.unit_type.index
 _PLAYER_ID = features.SCREEN_FEATURES.player_id.index
 
 _NO_OP = actions.FUNCTIONS.no_op.id
+_SELECT_POINT = actions.FUNCTIONS.select_point.id 
 _MOVE_SCREEN = actions.FUNCTIONS.Move_screen.id
 _ATTACK_SCREEN = actions.FUNCTIONS.Attack_screen.id
-_SELECT_ARMY = actions.FUNCTIONS.select_army.id
+_SELECT_ARMY = actions.FUNCTIONS.select_army.id #Attack_minimap.id
+
 _NOT_QUEUED = [0]
 _SELECT_ALL = [0]
 
@@ -74,11 +76,11 @@ KILL_UNIT_REWARD = 0.5
 
 class QLearnigTable:
   def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
-      self.actions = actions
+      self.actions = actions # a list? 
       self.lr = learning_rate
       self.gamma = reward_decay
       self.epsilon = e_greedy
-      self.q_table = pd.DataFrame(columns=self.actions)
+      self.q_table = pd.DataFrame(columns=self.actions, dtype=np.float64)
       
   def choose_action(self, observation):
       self.check_state_exist(observation)
@@ -90,7 +92,7 @@ class QLearnigTable:
       # some actions have the same value
         state_action = state_action.reindex(np.random.permutation(state_action.index))
         
-        action = state_action.argmax()
+        action = state_action.idxmax()
       else :
       # choose random action 
         action = np.random.choice(self.actions)
@@ -106,7 +108,7 @@ class QLearnigTable:
       #Make q-table and select max value 
       
       q_pedict = self.q_table.ix[s, a]
-      q_target = r + self.gamma * self.q_table.ix[s_, :].max
+      q_target = r + self.gamma * self.q_table.ix[s_, :].max()
       
       # update 
       
@@ -125,13 +127,21 @@ class SmartAgent(base_agent.BaseAgent):
     self.previous_killed_unit_score = 0
     self.previous_action = None
     self.previous_state = None 
-    
+ 
+
+  def transformLocation(self, x, x_distance, y, y_distance):
+      if not self.base_top_left:
+          return [x - x_distance, y - y_distance]
+      return [x + x_distance, y + y_distance]
+
     #Compare step from scripted agent with learning agent 
   def step(self, obs):
     super(SmartAgent, self).step(obs)
     #---#
     player_y, player_x = (obs.observation['minimap'][_PLAYER_RELATIVE] == _PLAYER_FRIENDLY).nonzero()
     self.base_top_left = 1 if player_y.any() and player_y.mean() <= 31 else 0
+    
+    ##unit_type = obs.observation['screen'][_UNIT_TYPE] is this here or inside fork ? 
     
     if smart_action == ACTION_DO_NOTHING:
       return actions.FunctionCall(_NO_OP), [])
@@ -151,7 +161,7 @@ class SmartAgent(base_agent.BaseAgent):
             n_sentry_count,
             hallucinations_count,
             n_enemies_count,
-            army_supply,
+            army_supply, #this comma exist? 
         ]   
         
         
@@ -214,4 +224,7 @@ class SmartAgent(base_agent.BaseAgent):
       if _HAL_STALKER in obs.observation["available_actions"]:
         player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
         hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
+      
       return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED]) 
+
+    return actions.FunctionCall(_NO_OP, [])
