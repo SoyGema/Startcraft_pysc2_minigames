@@ -12,20 +12,25 @@ from pysc2.agents import base_agent
 from pysc2.lib import actions
 from pysc2.lib import features 
 
+#Features
 _PLAYER_RELATIVE = features.SCREEN_FEATURES.player_relative.index
 _PLAYER_FRIENDLY = 1
 _PLAYER_HOSTILE = 4 
 _UNIT_TYPE = features.SCREEN_FEATURES.unit_type.index
 _PLAYER_ID = features.SCREEN_FEATURES.player_id.index
-
+#Functions
 _NO_OP = actions.FUNCTIONS.no_op.id
 _SELECT_POINT = actions.FUNCTIONS.select_point.id 
 _MOVE_SCREEN = actions.FUNCTIONS.Move_screen.id
 _ATTACK_SCREEN = actions.FUNCTIONS.Attack_screen.id
 _SELECT_ARMY = actions.FUNCTIONS.select_army.id #Attack_minimap.id
-
+#Parameters
 _NOT_QUEUED = [0]
 _SELECT_ALL = [0]
+
+#Unit IDs
+PROTOSS_SENTRY = 77
+TERRAN_HELLION = 53
 
 # Define the actions 
 ACTION_DO_NOTHING = 'donothing'
@@ -74,7 +79,7 @@ Smart_actions = [
 KILL_UNIT_REWARD = 0.5
 
 
-class QLearnigTable:
+class QLearningTable:
   def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
       self.actions = actions # a list? 
       self.lr = learning_rate
@@ -107,7 +112,7 @@ class QLearnigTable:
       
       #Make q-table and select max value 
       
-      q_pedict = self.q_table.ix[s, a]
+      q_predict = self.q_table.ix[s, a]
       q_target = r + self.gamma * self.q_table.ix[s_, :].max()
       
       # update 
@@ -129,6 +134,7 @@ class SmartAgent(base_agent.BaseAgent):
     self.previous_state = None 
  
 
+  #Helper method so that we can work with locations relative to the base
   def transformLocation(self, x, x_distance, y, y_distance):
       if not self.base_top_left:
           return [x - x_distance, y - y_distance]
@@ -136,95 +142,85 @@ class SmartAgent(base_agent.BaseAgent):
 
     #Compare step from scripted agent with learning agent 
   def step(self, obs):
-    super(SmartAgent, self).step(obs)
+      super(SmartAgent, self).step(obs)
     #---#
-    player_y, player_x = (obs.observation['minimap'][_PLAYER_RELATIVE] == _PLAYER_FRIENDLY).nonzero()
-    self.base_top_left = 1 if player_y.any() and player_y.mean() <= 31 else 0
+      player_y, player_x = (obs.observation['minimap'][_PLAYER_RELATIVE] == _PLAYER_FRIENDLY).nonzero()
+      self.base_top_left = 1 if player_y.any() and player_y.mean() <= 31 else 0
     
     ##unit_type = obs.observation['screen'][_UNIT_TYPE] is this here or inside fork ? 
-    
-    if smart_action == ACTION_DO_NOTHING:
-      return actions.FunctionCall(_NO_OP), [])
+      current_state = [
+          n_sentry_count,
+          hallucinations_count,
+          n_enemies_count,
+          army_supply,  # this comma exists?
+      ]
+
+
+      if self.previous_action is not None:
+          reward = 0
+
+          if killed_unit_score > self.previous_killed_score:
+              reward += KILL_UNIT_REWARD
+
+          self.qlearn.learn(str(self.previous_state), self.previous_action, reward, str(current_state))
+
+      rl_action = self.qlearn.choose_action(str(current_state))
+      smart_action = smart_actions[rl_action]
+
+      self.previous_killed_unit_score = killed_unit_score
+      self.previous_state = current_state
+      self.previous_action = rl_action
+
+
+
+      if smart_action == ACTION_DO_NOTHING:
+        return actions.FunctionCall(_NO_OP, [])
       
-    elif smart_action == ACTION_SELECT_SENTRY:
-      unit_type = obs.observation['screen'][_UNIT_TYPE]
-      unit_y, unit_x = (unit_type == _SENTRY).nonzero()
+      elif smart_action == ACTION_SELECT_SENTRY:
+        unit_type = obs.observation['screen'][_UNIT_TYPE]
+        unit_y, unit_x = (unit_type == _SENTRY).nonzero()
       
-      if unit_y.any():
-        i = random.randint(o, len(unit_y) -1)
-        target = [unit_x[i], unit_y[i]]
+        if unit_y.any():
+            i = random.randint(o, len(unit_y) -1)
+            target = [unit_x[i], unit_y[i]]
         
-        return actions.FunctionCall(_SELECT_POINT, [_SCREEN, target])
-        
-        
-        current_state = [
-            n_sentry_count,
-            hallucinations_count,
-            n_enemies_count,
-            army_supply, #this comma exist? 
-        ]   
-        
-        
-    if self.previous_action is not None:
-      reward = 0
-      
-      if killed_unit_score > self.previous_killed_score:
-        reward += KILL_UNIT_REWARD
-        
-      self.qlearn.learn(str(self.previous_state), self.previous_action, reward, str(current_state))
+            return actions.FunctionCall(_SELECT_POINT, [_NOT_QUEUED, target])
+
     
-    rl_action = self.qlearn.choose_action(str(current_state))
-    smart_action = smart_actions[rl_action]
+      elif smart_action == ACTION_HAL_ARCHON:
+        if _HAL_ARCHON in obs.observation["available_actions"]:
+            return actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
     
-    self.previous_killed_unit_score = killed_unit_score
-    self.previous_state = current_state
-    self.previous_action = rl_action
+      elif smart_action == ACTION_HAL_ADEPT:
+        if _HAL_ADEPT in obs.observation["available_actions"]:
+            return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
     
-    if smart_action == ACTION_DO_NOTHING:
-      return actions.FunctionCall(_NO_OP, [])
-    
-    elif smart_action == ACTION_HAL_ARCHON:
-      if _HAL_ARCHON in obs.observation["available_actions"]:
-        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
-        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
-      return actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
-    
-    elif smart_action == ACTION_HAL_ADEPT:
-      if _HAL_ADEPT in obs.observation["available_actions"]:
-        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
-        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
-      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
-    
-     elif smart_action == ACTION_HAL_COL:
-      if _HAL_COL in obs.observation["available_actions"]:
-        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
-        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
-      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])   
+      elif smart_action == ACTION_HAL_COL:
+        if _HAL_COL in obs.observation["available_actions"]:
+            return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
 
       elif smart_action == ACTION_HAL_DISRUP:
-      if _HAL_DISRUP in obs.observation["available_actions"]:
-        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
-        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
-      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])   
+        if _HAL_DISRUP in obs.observation["available_actions"]:
+            return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
     
       elif smart_action == ACTION_HIGTEM:
-      if _HAL_HIGTEM in obs.observation["available_actions"]:
-        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
-        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
-      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])     
+        if _HAL_HIGTEM in obs.observation["available_actions"]:
+            return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
     
       elif smart_action == ACTION_PHOENIX:
-      if _HAL_PHOENIX in obs.observation["available_actions"]:
-        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
-        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
-      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED]) 
+        if _HAL_PHOENIX in obs.observation["available_actions"]:
+            return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
     
     
       elif smart_action == ACTION_STALKER:
-      if _HAL_STALKER in obs.observation["available_actions"]:
-        player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
-        hellion_y, hellion_x = (player_relative = _PLAYER_HOSTILE).nonzero()
-      
-      return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED]) 
+        if _HAL_STALKER in obs.observation["available_actions"]:
+            return actions.FunctionCall(_HAL_ADEPT, [_NOT_QUEUED])
 
-    return actions.FunctionCall(_NO_OP, [])
+      elif smart_action == ACTION_ATTACK:
+        if _ATTACK_MINIMAP in obs.obsservation["available_actions"]:
+            if self.base_top_left:
+                return actions.FunctionCall(_ATTACK_MINIMAP, [_NOT_QUEUED], [77, 53])
+
+            return actions.FunctionCall(_ATTACK_MINIMAP, [_NOT_QUEUED], [77, 53])
+
+      return actions.FunctionCall(_NO_OP, [])
