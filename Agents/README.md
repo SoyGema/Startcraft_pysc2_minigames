@@ -17,3 +17,10 @@ scripted_agent.py --contains tests for Forcefield Starcraft 2 map
 ```
 $ python3 -m pysc2.bin.agent --agent scripted_agent.SentryForceField --map ForceField
 ```
+### About the agents 
+
+-- scripted_gent.py --- > scripted -Tested-
+
+-- q_learning_agent.py --- >  learning agent - not Tested - under development 
+
+-- DQN_Agent.py --- > learning agent - not Tested -under development 
