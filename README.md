@@ -40,13 +40,6 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 6.-[RedWaves](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/RedWaves): Choose your race and defend against waves of zerg attacks 
 
-![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202017-09-18%20a%20las%2020.14.14.png)
-
-![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/ForceField.png)
-
-![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/HallucinIceV2.png)
-
-![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202018-01-02%20a%20las%2014.51.09.png)
 
 ## Agents
 Regarding scripted agent, there is a python file with several developments. Scriptedagent.py is focused on HallucinIce map in which makes Archon Hallucination. Besides there is another class that put all hallucination actions on a list and the agent chooses randomly in between those actions .
