@@ -1,2 +1,2 @@
-Notes and references about reinforce learning 
+Notes and references about reinforcement learning for pySC2
 
