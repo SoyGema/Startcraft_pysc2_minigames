@@ -38,8 +38,9 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 5.-[TheRightPath](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/TheRightPath): Move to beacon finding the optimal route collecting minerals and avoiding mines .
 
-6.-[RedWaves](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/RedWaves): Choose your race and defend against waves of zerg attacks 
+6.-[RedWaves](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/RedWaves): Choose your race and defend against waves of zerg attacks .
 
+7.-[BlueMoon](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/BlueMoon): Choose unit development to defend against protoss development . (under construction) 
 
 ## Agents
 Regarding scripted agent, there is a python file with several developments. Scriptedagent.py is focused on HallucinIce map in which makes Archon Hallucination. Besides there is another class that put all hallucination actions on a list and the agent chooses randomly in between those actions .
@@ -47,7 +48,7 @@ Regarding scripted agent, there is a python file with several developments. Scri
 An A3C trained agent has been tested with several minigames, resulting some of them in a local optima . 
 Please, report problems in issues if you currently find problems .
 
-## Running ForceField in your computer 
+##  Example : Running ForceField in your computer 
 
 For executing Starcraft mini-games you need to have :
 
