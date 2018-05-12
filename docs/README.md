@@ -146,12 +146,6 @@ This script basically makes the victory check about the number of living units t
 For make the reward shaping , click on "Player -Modify player 1 Curriculum Score: Add 10" and change the value to 5 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Reward%20shaping.png)
 
-# Index
-
-## 1 - Terran
-1.1 - [Terran](Terran/Terran_mini_ganes.md)
-1.2 - [Zerg](Zerg/Zerg_mini_games.md)
-1.3 - [Protoss](Protoss/Protoss_mini_games.md)
 
 
 Startcraft dataset and AI research 
