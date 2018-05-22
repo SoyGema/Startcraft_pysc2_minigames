@@ -15,15 +15,24 @@ In this first iteration, as It is consider a master-branch, there are two games 
 
 FIRST GAME 
 
- ** 6 marines VS 3 zealots 
- 
+### Initial State
+Production development : 100 minerals 
+*  3 Zealots (Protoss)
+*  6 Marines  (Terran) 
 
- 
+### Rewards 
+
+* Zealots defeated: +10
+* Terran defeated: -10 
+
 SECOND GAME 
 
 The agent must choose in between producing Marauders or Hellions 
 
- ** Stalker, sentry against Hellions or Marauders 
+### State
+Production development : 100 minerals 
+*  2 Hellions (Terran)
+*  1 Stalker  (Protoss) 
 
 #### Tech developments in melees
 
