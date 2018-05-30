@@ -1,18 +1,17 @@
 
 
-# Startcraft Pysc2 Deepmind minigames creation
+# Startcraft Pysc2 Deepmind mini games creation
 This file aims to serve as a guide for opensource contributing in minigame pysc2 library for Artificial Intelligence reserach. In this document we will execute and change the map 'DefeatRoaches' for a 'DefeatWhatever' or some minor changes you could do in the StarCraft II editor for designing our own mini-battle 
 
-For minigame instalation for execution you should go to the official repository https://github.com/deepmind/pysc2 and install requirements
+For minigame instalation for execution you should go to the ![official repository](https://github.com/deepmind/pysc2) and install requirements
 
-## Minigame task description
-Minigames come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . 
+## Mini game task description
+Mini games come as a controled environments that might be useful to exploit game features in SC2. General purpose learning system for Startcraft 2 can be a daunting task. So there is a logical option in splitting this tasks into minitask in orther to advance in research . 
 To investigate elements of the game in isolation, and to provide further fine-grained steps towards playing the full game, Deepmind has  built several mini-games. These are focused scenarios on small maps that have been constructed with the purpose of testing a subset of actions and/or game mechanics with a clear reward structure. Unlike the full game where the reward is just win/lose/tie, the reward structure for mini-games can reward particular behaviours (as defined in a corresponding .SC2Map file).
 
-## Minigame introduction
+## Mini game introduction
 Before creating a minigame, I encourage you to run the alredy developed ones to see wich task are subdivided into each minigame as the design could be important . The minigame title gives us a description of the goal 
 Find bellow the exploration of DefeatRoaches mini-game map 
-
 
 ## From DefeatRoaches to Defeat'Whatever'
 
@@ -59,28 +58,46 @@ Two different type of agents have been executed in this minimap. As a matter of 
 #### Experiment 1
 
 DefeatRoaches minigame map random agent
+
 ```shell
 $ python3 -m pysc2.bin.agent --map DefeatRoaches
 ```
-watch video at 
-[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=tYxleQHgWJE "Random Agent MarinesVS Roaches" )
+  </a>
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=tYxleQHgWJE "Random Agent MarinesVS Roaches""
+     target="_blank">
+    <img src="https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg"
+         alt="MarinesVSRoaches Random Agent"
+         width="340" height="180" border="10" />
+  </a>
 
 *   Priorization of moving in map (marine player 1) VS attack (roaches player 2) 
 *   Playing for 15min with all defeats for player 1 
 *   Note that this is not a scripted agent. 
 *   The game was executing during 15 minutes approximately 
 *   Find bellow the 17 actions the agent was actually executing during the game 
-You can find a complete list of actions in this link https://github.com/deepmind/pysc2/blob/master/pysc2/lib/actions.py#L553 . Think that when you are defining your own minimap you should list of actions of units.
+
+You can find a complete list of actions ![link](https://github.com/deepmind/pysc2/blob/master/pysc2/lib/actions.py#L553) . 
+Think that when you are defining your own minimap you should list of actions of units.
+
+
 ![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/print_screen_1.png )
 
 #### Experiment 2 
 
 DefeatRoaches minigame map scripted agent 
+
 ```shell
 $ python3 -m pysc2.bin.agent --map DefeatRoaches --agent pysc2.agents.scripted_agent.DefeatRoaches
 ```
-watch video at 
-[![MarinesVSRoaches](https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg)](https://www.youtube.com/watch?v=XvYWLRBf-5U "Scripted Agent MarinesVS Roaches" )
+  </a>
+  <a href="https://www.youtube.com/watch?v=XvYWLRBf-5U
+     target="_blank">
+    <img src="https://github.com/SoyGema/Startcraft/blob/master/Images/2C01EB1027814BB7FF16A15272E1B2DEF9FDEEC3.jpg"
+         alt="MarinesVSRoaches Scripted Agent"
+         width="340" height="180" border="10" />
+  </a>
+
 
 *   No map random exploration by agent
 *   Increased number of victories by agent 
@@ -102,7 +119,9 @@ By now, the most significant concepts that minigame creation need are
 *Triggers . Basic set of instructions and visual programming interface in wich you can set important variables such as : events, conditions and actions 
 
 Inside your Starcraft II folder you should find an executable file for StarCraft II Editor . When you open MarinesVSRoach.SC2Maps you should find something like this 
+
 ##### Terrain
+
 In this screen you might find a terrain configuration. Playable space and Right / Left areas are settled for different players. In the upper band you might find common open/save  copy/paste settings options and unit/terrain edition.
 
 ![alt tag](https://github.com/SoyGema/Startcraft/blob/master/Images/Captura%20de%20pantalla%202017-09-08%20a%20las%2017.05.07.png)
@@ -111,6 +130,7 @@ The first thing that you might find curious is that there are no units settled d
 They are settled in the init visual script 
 
 ##### Triggers
+
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/trigger.png)
 In the top bar you might see an ico 
 Triggers are divided into List / content full interfaces.
@@ -122,6 +142,7 @@ Common to all minimaps we have Init trigger, in wich we will setup initial condi
 Top right to trigger list we will find trigger content , in wich we will expand options for init trigger to function. We will find 4 options common to all minimaps 
 
 ###### UNIT CHANGE Changing unit inizialization in Init visual script 
+
 In the init script you might find  two ways to create the units :
 
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/change_units.png)
@@ -150,11 +171,7 @@ For make the reward shaping , click on "Player -Modify player 1 Curriculum Score
 
 Startcraft dataset and AI research 
 ## Another  Useful resources about Startcraft 
-DeepMind paper
 
-DataSet exploration
-https://arxiv.org/pdf/1708.02139.pdf
-Pysc2 deepmind reserach paper
+Mini games ![list](https://github.com/SoyGema/Startcraft_pysc2_minigames)
 
-Link to Pysc2 repository 
-https://github.com/deepmind/pysc2
+Community ![mini games](https://github.com/SoyGema/pySC2_minigames)
