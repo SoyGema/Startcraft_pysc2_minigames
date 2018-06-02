@@ -55,7 +55,7 @@ class SentryForceField(base_agent.BaseAgent):
   def step(self, obs):
     super(SentryForceField, self).step(obs)
     if _FORCE_FIELD in obs.observation["available_actions"]:
-      player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+      player_relative = obs.observation["feature_screen"][_PLAYER_RELATIVE]
       hydralisk_y, hydralisk_x = (player_relative == _PLAYER_HOSTILE).nonzero()
       if not hydralisk_y.any():
         return actions.FunctionCall(_NO_OP, [])
@@ -74,7 +74,7 @@ class HallucinationArchon(base_agent.BaseAgent):
   def step(self, obs):
     super(HallucinationArchon, self).step(obs)
     if _HAL_ARCHON in obs.observation["available_actions"]:
-      player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+      player_relative = obs.observation["feature_screen"][_PLAYER_RELATIVE]
       hellion_y, hellion_x = (player_relative == _PLAYER_HOSTILE).nonzero()
       if not hellion_y.any():
         return actions.FunctionCall(_NO_OP, [])
@@ -106,7 +106,7 @@ class Hallucination(base_agent.BaseAgent):
     
    
     if Hallucinations[test] in obs.observation["available_actions"]:
-      player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+      player_relative = obs.observation["feature_screen"][_PLAYER_RELATIVE]
       hellion_y, hellion_x = (player_relative == _PLAYER_HOSTILE).nonzero()
       if not hellion_y.any():
         return actions.FunctionCall(_NO_OP, [])
@@ -135,7 +135,7 @@ class Hallucination(base_agent.BaseAgent):
   def step(self, obs):
     super(StalkerControl, self).step(obs)
     if _______ in obs.observation["available_actions"]:
-      player_relative = obs.observation["screen"][_PLAYER_RELATIVE]
+      player_relative = obs.observation["feature_screen"][_PLAYER_RELATIVE]
       zealot_y, zealot_x = (player_relative == _PLAYER_HOSTILE).nonzero()
       if not zealot_y.any():
         return actions.FunctionCall(_NO_OP, [])
