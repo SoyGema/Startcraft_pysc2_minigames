@@ -144,7 +144,9 @@ def neural_network_model(input, actions):
 
 
 def training_game():
-    env = Environment(map_name="HallucinIce", visualize=True, game_steps_per_episode=150)
+    env = Environment(map_name="HallucinIce", visualize=True, game_steps_per_episode=150, agent_interface_format=features.AgentInterfaceFormat(
+        feature_dimensions=features.Dimensions(screen=64, minimap=32)
+    ))
 
     input_shape = (_SIZE, _SIZE, 1)
     nb_actions = _SIZE * _SIZE  # Should this be an integer
@@ -198,6 +200,6 @@ def training_game():
     dqn.save_weights(w_file, overwrite=True)
     dqn.test(env, action_repetition=2, nb_episodes=30, visualize=False)
 
-    if __name__ == '__main__':
-        FLAGS(sys.argv)
-        training_game()
+if __name__ == '__main__':
+    FLAGS(sys.argv)
+    training_game()
