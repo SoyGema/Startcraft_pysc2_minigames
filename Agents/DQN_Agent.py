@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+import random
 
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Conv2D, Activation, MaxPooling2D
@@ -109,10 +110,10 @@ class Environment(sc2_env.SC2Env):
 
 def actions_to_choose(action):
     hall = [_HAL_ADEPT, _HAL_ARCHON]
-    y = min(int(np.ceil(action / _SIZE)), _SIZE - 1)
-    x = int(action % _SIZE)
-    hallucinate = actions.FunctionCall(_HAL_ARCHON, [_NOT_QUEUED])
-    return y, x, hallucinate
+    #y = min(int(np.ceil(action / _SIZE)), _SIZE - 1)
+    #x = int(action % _SIZE)
+    action = actions.FunctionCall(random.choice(hall), [_NOT_QUEUED])
+    return action
 
 
 ## Agent architecture using keras rl
@@ -151,9 +152,9 @@ def training_game():
     input_shape = (_SIZE, _SIZE, 1)
     nb_actions = _SIZE * _SIZE  # Should this be an integer
 
-    model = neural_network_model(input_shape, action)
+    model = neural_network_model(input_shape, nb_actions)
     # memory : how many subsequent observations should be provided to the network?
-    memory = SequentialMemory(limit=5e4, window_length=_WINDOW_LENGTH)
+    memory = SequentialMemory(limit=5000, window_length=_WINDOW_LENGTH)
 
     processor = SC2Proc()
 
@@ -172,7 +173,7 @@ def training_game():
     # Double Q-learning ( combines Q-Learning with a deep Neural Network )
     # Q Learning -- Bellman equation
 
-    dqn = DQNAgent(model=model, nb_actions=action, memory=memory,
+    dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory,
                    nb_steps_warmup=50, target_model_update=1e-2, policy=policy,
                    batch_size=150)
 
