@@ -16,23 +16,22 @@ In this first iteration, as It is consider a master-branch, there are two games 
 FIRST GAME 
 
 ### Initial State
-Production development : 100 minerals 
+Production development : 50000 minerals and vespene
+*  10 supply depots
+*  1 Barracks
+*  1 Factory 
+*  1 Starport 
 *  3 Zealots (Protoss)
 *  6 Marines  (Terran) 
 
 ### Rewards 
 
-* Zealots defeated: +10
+* Protoss defeated: +10
 * Terran defeated: -10 
 
-SECOND GAME 
+### Second Wave  
 
-The agent must choose in between producing Marauders or Hellions 
 
-### State
-Production development : 100 minerals 
-*  2 Hellions (Terran)
-*  1 Stalker  (Protoss) 
 
 #### Tech developments in melees
 
@@ -40,5 +39,5 @@ Production development : 100 minerals
 
 #### mini-game under development
 
-Please note this mini-game is under development and It´s a first itration
-If you find any issue you are encouraged to open an issue following the code of conduct. 
+Please note this mini-game is under development and It´s a second iteration
+If you find any issue you are encouraged to open an issue or send a pull request following the code of conduct. 
