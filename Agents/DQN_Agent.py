@@ -41,7 +41,7 @@ _WINDOW_LENGTH = 1
 
 ## Load and save weights for training
 
-LOAD_MODEL = True
+LOAD_MODEL = False #True si ya está creado para entrenar el modelo
 SAVE_MODEL = True
 
 ## global variable
@@ -62,9 +62,8 @@ flags.DEFINE_string("algorithm", "deepq", "RL algorithm to use")
 class SC2Proc(Processor):
     def process_observation(self, observation):
         """Process the observation as obtained from the environment for use an agent and returns it"""
-        obs = observation[0].observation["screen"][
-            _PLAYER_RELATIVE]  # Read the features from the screen . This will change with pix2pix
-        return obs
+        obs = observation[0].observation["feature_screen"][_PLAYER_RELATIVE]  # Read the features from the screen . This will change with pix2pix
+        return np.expand_dims(obs, axis=2)
 
     def process_state_batch(self, batch):
         """Processes an entire batch of states and returns it"""
@@ -89,9 +88,8 @@ class Environment(sc2_env.SC2Env):
         action = actions_to_choose(
             action)  # Actions of Hallucination and movement  Make a function that selects among hallucination functions
         obs = super(Environment, self).step(
-            [actions.FunctionCall(_MOVE_SCREEN, [_NOT_QUEUED, action])])  ## change the action for Hallucination?
+            [actions.FunctionCall(_NO_OP, [])])  ## change the action for Hallucination or attack ?
         # The method calls an observation that moves the screen
-
         observation = obs
         r = obs[0].reward
         done = obs[0].step_type == environment.StepType.LAST  # Episode_over
@@ -110,8 +108,6 @@ class Environment(sc2_env.SC2Env):
 
 def actions_to_choose(action):
     hall = [_HAL_ADEPT, _HAL_ARCHON]
-    #y = min(int(np.ceil(action / _SIZE)), _SIZE - 1)
-    #x = int(action % _SIZE)
     action = actions.FunctionCall(random.choice(hall), [_NOT_QUEUED])
     return action
 
@@ -174,10 +170,11 @@ def training_game():
     # Q Learning -- Bellman equation
 
     dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory,
-                   nb_steps_warmup=50, target_model_update=1e-2, policy=policy,
-                   batch_size=150)
+                   nb_steps_warmup=500, target_model_update=1e-2, policy=policy,
+                   batch_size=150, processor=processor)
 
     dqn.compile(Adam(lr=.001), metrics=["mae"])
+
 
     ## Save the parameters and upload them when needed
 
@@ -189,7 +186,7 @@ def training_game():
         check_w_file = "train_w" + name + "_weights_{step}.h5f"
 
     log_file = "training_w_{}_log.json".format(name)
-    callbacks = [ModelIntervalCheckpoint(check_w_file, interval=1e4)]
+    callbacks = [ModelIntervalCheckpoint(check_w_file, interval=1000)]
     callbacks += [FileLogger(log_file, interval=100)]
 
     if LOAD_MODEL:
@@ -204,3 +201,4 @@ def training_game():
 if __name__ == '__main__':
     FLAGS(sys.argv)
     training_game()
+
