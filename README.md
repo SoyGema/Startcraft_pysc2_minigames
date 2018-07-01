@@ -5,8 +5,8 @@
 [![GitHub forks](https://img.shields.io/github/forks/SoyGema/Startcraft_pysc2_minigames.svg)](https://github.com/SoyGema/Startcraft_pysc2_minigames/network)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/SoyGema/Startcraft_pysc2_minigames.svg?style=social)](https://twitter.com/intent/tweet?text=Pysc2_mini-games_by_@SoyGema:&url=https%3A%2F%2Fgithub.com%2FSoyGema%2FStartcraft_pysc2_minigames)
 
-# Startcraft pySC2 Deepmind minigames creation
-This repository aims to serve as a guide for opensource contributing in minigame pysc2 library for Starcraft
+# Startcraft PySC2 mini-games and agents 
+This repository aims to serve as a guide for open source contributing in minigame pysc2 library for Starcraft II
 For minigame instalation for execution you should go to [the official repository](https://github.com/deepmind/pysc2) and install requirements
 
 ## Direct Links 
@@ -45,7 +45,9 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 ## Agents
 Regarding scripted agent, there is a python file with several developments. Scriptedagent.py is focused on HallucinIce map in which makes Archon Hallucination. Besides there is another class that put all hallucination actions on a list and the agent chooses randomly in between those actions .
 
-An A3C trained agent has been tested with several minigames, resulting some of them in a local optima . 
+Q-Learning and DQN agents are provided for HallucinIce minigame with the new  PySC2 release 
+
+An A3C trained agent has been tested with several minigames, reaching some of them a local optima . 
 Please, report problems in issues if you currently find problems .
 
 ##  Example : Running ForceField in your computer 
@@ -54,7 +56,7 @@ For executing Starcraft mini-games you need to have :
 
 * Starcraft 2 installed in your computer
 * Install pysc2 library following the instructions in [the official repository](https://github.com/deepmind/pysc2)
-* Clone/Download this repository and put ForceField map on map folder
+* Clone/Download this repository and put mini-games maps on Map folder ( if not there, create it ) 
 * Add ForceField.SC2Map file to Maps file in Starcraft 2, usually in Applications>Starcraft2>Maps>minigames
 * Execute the agent from your console typing :
       $ python -m pysc2.bin.agent --map ForceField
