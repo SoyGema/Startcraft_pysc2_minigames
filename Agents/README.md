@@ -21,6 +21,19 @@ $ python3 -m pysc2.bin.agent --agent scripted_agent.SentryForceField --map Force
 
 -- scripted_gent.py --- > scripted -Tested-
 
--- q_learning_agent.py --- >  learning agent - not Tested - under development 
+-- q_learning_agent.py --- >  learning agent - Tested - 
 
--- DQN_Agent.py --- > learning agent - not Tested -under development 
+-- DQN_Agent.py --- > learning agent - Tested - under development 
+
+
+### Debugging and testing 
+
+
+#### Print available actions 
+
+Will print the id of the available actions in a list 
+
+        action_no = actions.FunctionCall(_NO_OP, [])
+        obs_no = super(Environment, self).step([action_no])
+        actions_available = obs_no[0].observation.available_actions
+        print(actions_available) 
