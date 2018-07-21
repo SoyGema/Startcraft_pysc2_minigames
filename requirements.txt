@@ -1,4 +1,4 @@
-PySC2==1.2
+PySC2==2.0
 numpy==1.14.0
 Keras==2.1.3
 keras-rl==0.4.0
