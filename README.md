@@ -65,3 +65,7 @@ For executing Starcraft mini-games you need to have :
 #### Tutorial
 Find an ongoing  tutorial about how to create your own mini-game 
 at https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/docs
+
+
+#### Other repository 
+With features with map placement [here](https://github.com/ttinies/sc2gameMapRepo)
