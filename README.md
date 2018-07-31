@@ -50,22 +50,42 @@ Q-Learning and DQN agents are provided for HallucinIce minigame with the new  Py
 An A3C trained agent has been tested with several minigames, reaching some of them a local optima . 
 Please, report problems in issues if you currently find problems .
 
-##  Example : Running ForceField in your computer 
+## How to run mini-games in your environment 
 
-For executing Starcraft mini-games you need to have :
+1. Download or clone the repository, or download all minigames clicking here
 
-* Starcraft 2 installed in your computer
-* Install pysc2 library following the instructions in [the official repository](https://github.com/deepmind/pysc2)
-* Clone/Download this repository and put mini-games maps on Map folder ( if not there, create it ) 
-* Add ForceField.SC2Map file to Maps file in Starcraft 2, usually in Applications>Starcraft2>Maps>minigames
-* Execute the agent from your console typing :
-      $ python -m pysc2.bin.agent --map ForceField
+2. Place the .SC2 files into /Applications/StarCraft II/Maps/mini_games/  -sometimes the Map folder might not exist. If so, please create it-
+
+3. Go to pysc2\maps\mini_games.py and add to mini-games array the following mini-games names 
+
+```python
+mini_games = [  ## This mini-games names should alredy been in your list
+    "BuildMarines",  # 900s
+    "CollectMineralsAndGas",  # 420s
+    "CollectMineralShards",  # 120s
+    "DefeatRoaches",  # 120s
+    "DefeatZerglingsAndBanelings",  # 120s
+    "FindAndDefeatZerglings",  # 180s
+    "MoveToBeacon",  # 120s   ##Now you add this few lines 
+    "DefeatZealotswithBlink", # 120s
+    "HallucinIce", # 30s
+    "PredictBattleOutcome", # 30s
+    "DefeatRavagersRepairCyclones", # 60s
+    "HitAndRun", # 300s
+    "Marine_Rescue", # 180s
+    "FlowerFields", # 60s
+    "ResourcesHaveArrived", # 500s
+]
+```
+4. In your console, you can type the mini-game map name 
+
+```console
+my-computer:~ me$ python -m pysc2.bin.agent --map FlowerFields 
+```
       
       
 #### Tutorial
-Find an ongoing  tutorial about how to create your own mini-game 
-at https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/docs
-
+Find an ongoing  tutorial about how to create your own mini-game [here](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/docs)
 
 #### Other repository 
 With features with map placement [here](https://github.com/ttinies/sc2gameMapRepo)
