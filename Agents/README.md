@@ -23,7 +23,9 @@ $ python3 -m pysc2.bin.agent --agent scripted_agent.SentryForceField --map Force
 
 -- q_learning_agent.py --- >  learning agent - Tested - 
 
--- DQN_Agent.py --- > learning agent - Tested - under development 
+-- DQN_Agent.py --- > learning agent - Tested - 
+
+-- DQN_Agent_LSTM.py --- > learning agent - Tested -
 
 
 ### Debugging and testing 
