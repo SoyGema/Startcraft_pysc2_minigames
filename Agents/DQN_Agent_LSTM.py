@@ -213,6 +213,12 @@ def training_game():
 
     dqn.compile(Adam(lr=.001), metrics=["mae"])
 
+    # Tensorboard callback
+
+    callbacks = keras.callbacks.TensorBoard(log_dir='./Graph', histogram_freq=0,
+                                write_graph=True, write_images=False)
+    
+    
     # Save the parameters and upload them when needed
 
     name = FLAGS.mini_game
@@ -223,8 +229,6 @@ def training_game():
         check_w_file = "train_w" + name + "_weights_{step}.h5f"
 
     log_file = "training_w_{}_log.json".format(name)
-    callbacks = [ModelIntervalCheckpoint(check_w_file, interval=1000)]
-    callbacks += [FileLogger(log_file, interval=100)]
 
     if LOAD_MODEL:
         dqn.load_weights(w_file)
