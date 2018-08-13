@@ -25,7 +25,14 @@ $ python3 -m pysc2.bin.agent --agent scripted_agent.SentryForceField --map Force
 
 -- DQN_Agent.py --- > learning agent - Tested - 
 
--- DQN_Agent_LSTM.py --- > learning agent - Tested -
+-- DQN_Agent_LSTM.py --- > learning agent - Tested - Architecture bellow
+
+After executing file, type in console :
+
+```
+$ tensorboard --logdir path/Graph
+```
+![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202018-08-13%20a%20las%2015.43.15.png)
 
 
 ### Debugging and testing 
