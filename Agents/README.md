@@ -30,7 +30,7 @@ $ python3 -m pysc2.bin.agent --agent scripted_agent.SentryForceField --map Force
 After executing file, type in console :
 
 ```
-$ tensorboard --logdir path/Graph
+$ tensorboard --logdir path/Graph --host localhost --port 8088
 ```
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/Images/Captura%20de%20pantalla%202018-08-13%20a%20las%2015.43.15.png)
 
