@@ -67,14 +67,14 @@ mini_games = [  ## This mini-games names should alredy been in your list
     "DefeatZerglingsAndBanelings",  # 120s
     "FindAndDefeatZerglings",  # 180s
     "MoveToBeacon",  # 120s   ##Now you add this few lines 
-    "DefeatZealotswithBlink", # 120s
+    "SentryDefense", # 120s
+    "ForceField", # 30s
     "HallucinIce", # 30s
-    "PredictBattleOutcome", # 30s
-    "DefeatRavagersRepairCyclones", # 60s
-    "HitAndRun", # 300s
-    "Marine_Rescue", # 180s
     "FlowerFields", # 60s
-    "ResourcesHaveArrived", # 500s
+    "TheRightPath", # 300s
+    "RedWaves", # 180s
+    "BlueMoon", # 60s
+    "", # 100s
 ]
 ```
 4. In your console, you can type the mini-game map name 
