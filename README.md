@@ -42,6 +42,8 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 7.-[BlueMoon](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/BlueMoon): Choose unit development to defend against protoss development . (under construction) 
 
+8.-[MicroPrism](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/MicroPrism): Learn how to use Warp Prism in a protoss versus protoss stalker melee 
+
 ## Agents
 Regarding scripted agent, there is a python file with several developments. Scriptedagent.py is focused on HallucinIce map in which makes Archon Hallucination. Besides there is another class that put all hallucination actions on a list and the agent chooses randomly in between those actions .
 
@@ -74,7 +76,7 @@ mini_games = [  ## This mini-games names should alredy been in your list
     "TheRightPath", # 300s
     "RedWaves", # 180s
     "BlueMoon", # 60s
-    "", # 100s
+    "MicroPrism", # 45s
 ]
 ```
 4. In your console, you can type the mini-game map name 
