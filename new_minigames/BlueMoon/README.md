@@ -2,7 +2,7 @@
 
 #### Description
 TvP mini-game. 
-The goal of this mini-game is to explore a scale-up micro and taking into account the tech development of the adversarial race . The objetive of the agent is to maximize the sum of rewards earned through a sequence of adversarial tech development evolution
+The goal of this mini-game is to explore a scale-up micro and taking into account the tech development of the adversarial race (TechTree) . The objetive of the agent is to maximize the sum of rewards earned through a sequence of adversarial tech development evolution . The good agents will develop tech that responds and is able to beat the opponent. Mini-game thought to develop the "tech-tree" learning algorithm .
 
 Find bellow an image regarding Protoss tech development
 ![alt tag](https://github.com/SoyGema/Startcraft_pysc2_minigames/blob/master/new_minigames/BlueMoon/Images/Protoss.jpg)
