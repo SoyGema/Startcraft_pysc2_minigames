@@ -91,3 +91,8 @@ Find an ongoing  tutorial about how to create your own mini-game [here](https://
 
 #### Other repository 
 With features with map placement [here](https://github.com/ttinies/sc2gameMapRepo)
+
+
+
+'Making a reward function isn’t that difficult. The difficulty comes when you try to design a reward function that encourages the behaviors you want while still being learnable.'
+-Deep Reinforcement Learning Doesn´t work yet , Alex Irpan [post](https://www.alexirpan.com/2018/02/14/rl-hard.html)- 
