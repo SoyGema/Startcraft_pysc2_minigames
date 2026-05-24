@@ -40,6 +40,7 @@ In ForceField,an imbalanced situation between Sentry and Zerg units forces sentr
 
 6.-[RedWaves](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/RedWaves): Choose your race and defend against waves of zerg attacks .
 
+
 7.-[BlueMoon](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/BlueMoon): Choose unit development to defend against protoss development . (under construction) 
 
 8.-[MicroPrism](https://github.com/SoyGema/Startcraft_pysc2_minigames/tree/master/new_minigames/MicroPrism): Learn how to use Warp Prism in a protoss versus protoss stalker melee 
